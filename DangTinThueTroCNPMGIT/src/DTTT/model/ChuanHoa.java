@@ -5,6 +5,8 @@
  */
 package DTTT.model;
 
+import java.util.Random;
+
 /**
  *
  * @author Admin
@@ -48,4 +50,21 @@ public class ChuanHoa {
     }
     return st;
     }
+    public static String xoaKhoangTrang(String st){
+        st = st.replaceAll("\\s+","");
+        return st;
+    }
+    public static String taoMaLichHen(){
+        Random ran=new Random();
+        int top=8;
+        char data=' ';
+        String dat="LH";
+
+        for (int i=0; i<top; i++) {
+          data=(char)(ran.nextInt(10)+48);
+          dat = dat + data;
+        }
+        return dat;
+    }
+    
 }

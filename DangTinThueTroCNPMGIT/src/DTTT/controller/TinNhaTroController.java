@@ -71,7 +71,8 @@ public class TinNhaTroController {
     private JTextField jtfSearch;
     private JLabel jlbAnh;
     
-    PhongJDialog jdialog = new PhongJDialog(tinphong, lp);
+    PhongJDialog jdialog;
+    
 //    PhongJDialog jdialog = new PhongJDialog(tinphong, lp);
 //    PhongJFrame frame = new PhongJFrame(tinphong);
     private ClassTableModel classTableModel = null;
@@ -87,7 +88,8 @@ public class TinNhaTroController {
     private ThanhPhoService thanhPhoService = null;
 //    private List<String> dsMaHinh = null;
     ThongTinTin tin = null;
-    public TinNhaTroController(JPanel jpnView, JTextField jtfSearch) {
+    public TinNhaTroController(JPanel jpnView, JTextField jtfSearch) throws SQLException {
+        this.jdialog = new PhongJDialog(tinphong, lp);
         this.jpnView = jpnView;
 //        this.btnAdd = btnAdd;
         this.jtfSearch = jtfSearch;

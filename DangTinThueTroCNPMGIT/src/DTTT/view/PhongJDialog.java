@@ -19,6 +19,8 @@ import DTTT.service.ThongTinPhongServiceImpl;
 import DTTT.utility.ClassTableModel;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -41,15 +43,18 @@ import javax.swing.JLabel;
 
 public class PhongJDialog extends javax.swing.JDialog {
     
-    public PhongJDialog(){
+    String MaTinTin = ""; 
+    public PhongJDialog() throws SQLException {
+        initComponents();
         this.anhService = new AnhServiceImpl();
+        
     }
     
     private AnhService anhService = new AnhServiceImpl();
     
     private ThongTinPhongService thongTinPhongService = null;
     
-    public PhongJDialog(ThongTinPhong tinphong, LoaiPhong lp) {
+    public PhongJDialog(ThongTinPhong tinphong, LoaiPhong lp) throws SQLException {
         initComponents();
         this.anhService = new AnhServiceImpl();
         this.thongTinPhongService = new  ThongTinPhongServiceImpl();
@@ -58,8 +63,9 @@ public class PhongJDialog extends javax.swing.JDialog {
          
     }
     
-    public PhongJDialog(java.awt.Frame parent, boolean modal, ThongTinPhong tinphong, LoaiPhong lp) {
+    public PhongJDialog(java.awt.Frame parent, boolean modal, ThongTinPhong tinphong, LoaiPhong lp) throws SQLException {
         super(parent, modal);
+        
         initComponents();
         
         this.anhService = new AnhServiceImpl();
@@ -76,25 +82,23 @@ public class PhongJDialog extends javax.swing.JDialog {
     
     
    
-    
-    
     int loai=0,luu=0;
     ButtonGroup bg = new ButtonGroup();
     byte[] picture = null;
     List<byte[]> listAnhByte = null;
-    String MaTinTin = ""; 
     
     
-    public PhongJDialog(ThongTinPhong tinphong) {
+    public PhongJDialog(ThongTinPhong tinphong) throws SQLException {
         initComponents();
         
         
         this.anhService = new AnhServiceImpl();
         ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
         controller.setView(tinphong);
+        
          
     }
-
+    
 //    public PhongJDialog() {
 //    }
     public void setTinPhong(ThongTinPhong tinphong){
@@ -102,7 +106,7 @@ public class PhongJDialog extends javax.swing.JDialog {
         controller.setView(tinphong);
     }
     
-        public void setTinPhong(ThongTinPhong tinphong, LoaiPhong lp){
+    public void setTinPhong(ThongTinPhong tinphong, LoaiPhong lp){
         ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
         controller.setView(tinphong, lp);
     }
@@ -137,7 +141,7 @@ public class PhongJDialog extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jtfDienTich = new javax.swing.JTextField();
         jbtXemHinhPhong = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbtnHenXemPhong = new javax.swing.JButton();
 
         jtfMaTin.setEditable(false);
         jtfMaTin.setBackground(new java.awt.Color(224, 236, 255));
@@ -251,13 +255,13 @@ public class PhongJDialog extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Hẹn xem phòng");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtnHenXemPhong.setBackground(new java.awt.Color(255, 255, 255));
+        jbtnHenXemPhong.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jbtnHenXemPhong.setText("Hẹn xem phòng");
+        jbtnHenXemPhong.setBorder(null);
+        jbtnHenXemPhong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtnHenXemPhongActionPerformed(evt);
             }
         });
 
@@ -299,7 +303,7 @@ public class PhongJDialog extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jbtXemHinhPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbtnHenXemPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jtaMoTa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
@@ -337,7 +341,7 @@ public class PhongJDialog extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbtnHenXemPhong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jbtXemHinhPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -416,6 +420,8 @@ public class PhongJDialog extends javax.swing.JDialog {
         MaTinTin = jtfMaTin.getText();
         MaTinTin = ChuanHoa.chuanHoaMa(MaTinTin);
         
+       
+        
         System.out.println("Mã tin: "+MaTinTin+"/");
         try {
             //        System.out.println(hinhAnh.getDsha());
@@ -431,9 +437,24 @@ public class PhongJDialog extends javax.swing.JDialog {
             
     }//GEN-LAST:event_jbtXemHinhPhongActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbtnHenXemPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnHenXemPhongActionPerformed
+        try {
+            // TODO add your handling code here:
+            
+            MaTinTin = jtfMaTin.getText();
+            MaTinTin = ChuanHoa.xoaKhoangTrang(MaTinTin);
+            
+            
+            DatLichHen dl = new DatLichHen(MaTinTin);
+            dl.setVisible(false);
+            dl.setBounds(90, 90, 620, 470);
+            dl.setLocationRelativeTo(null);
+            dl.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(PhongJDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jbtnHenXemPhongActionPerformed
     
   
     public void setTin(String MaTinTin) throws SQLException{
@@ -493,7 +514,6 @@ public class PhongJDialog extends javax.swing.JDialog {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -502,6 +522,7 @@ public class PhongJDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton jbtXemHinhPhong;
+    private javax.swing.JButton jbtnHenXemPhong;
     private javax.swing.JTextArea jtaMoTa;
     private javax.swing.JTextField jtfDienTich;
     private javax.swing.JTextField jtfDieuHoa;

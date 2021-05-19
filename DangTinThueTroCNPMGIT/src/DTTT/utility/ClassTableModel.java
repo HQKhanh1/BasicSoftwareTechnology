@@ -13,7 +13,6 @@ import DTTT.model.QuanHuyen;
 import DTTT.model.ThanhPho;
 import DTTT.model.ThongTinPhong;
 import DTTT.model.XaPhuong;
-import com.sun.org.apache.xml.internal.utils.LocaleUtility;
 import java.awt.Image;
 import java.io.IOException;
 import java.util.List;
