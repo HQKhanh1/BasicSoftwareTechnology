@@ -8,10 +8,14 @@ package DTTT.view;
 import DTTT.controller.ChuyenManHinh;
 import DTTT.dao.DBConnect;
 import DTTT.dao.KTTK;
+import DTTT.model.ThongTinPhong;
+import DTTT.model.ThongTinTin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -53,9 +57,44 @@ public class CapNhatMenu extends javax.swing.JPanel {
             jTable1.setModel(dtm);
              
         } catch (SQLException ex) {
-            Logger.getLogger(CapNhatMenu.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
+    
+  private List<ThongTinTin> lay_TinList(){
+        Connection conn = DBConnect.getConnection();
+        
+        
+        String sql = "SELECT * FROM Thong_Tin_Tin where TaiKhoan = ?";
+        List<ThongTinTin> list = new ArrayList<>();
+//        Vector<String> vt;
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, KTTK.getTtk());
+            ResultSet rs = ps.executeQuery(); 
+            while(rs.next()){
+                ThongTinTin ttt = new ThongTinTin();
+
+//                ttt.setMaTin(rs.getString("MaTin"));
+                ttt.setTieuDe(rs.getString("TieuDe"));
+                ttt.setMaTin(rs.getString("SDTTin"));
+                ttt.setTieuDe(rs.getString("NgayDang"));
+                ttt.setMaTin(rs.getString("AnNinh"));
+                ttt.setTieuDe(rs.getString("ThongTinDiaChi"));
+
+                list.add(ttt);
+            }
+            ps.close();
+            rs.close();
+            conn.close();
+            return list;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,6 +105,7 @@ public class CapNhatMenu extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jbtXuatFile = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(960, 640));
 
@@ -74,8 +114,11 @@ public class CapNhatMenu extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Tìm kiếm");
 
-        jbtThemTinMoi.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jbtThemTinMoi.setText("+Thêm tin mới");
+        jbtThemTinMoi.setBackground(new java.awt.Color(76, 175, 80));
+        jbtThemTinMoi.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbtThemTinMoi.setForeground(new java.awt.Color(255, 255, 255));
+        jbtThemTinMoi.setText("Thêm tin mới");
+        jbtThemTinMoi.setBorder(null);
         jbtThemTinMoi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbtThemTinMoiMouseClicked(evt);
@@ -121,7 +164,7 @@ public class CapNhatMenu extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 920, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,6 +175,22 @@ public class CapNhatMenu extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jbtXuatFile.setBackground(new java.awt.Color(76, 175, 80));
+        jbtXuatFile.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbtXuatFile.setForeground(new java.awt.Color(255, 255, 255));
+        jbtXuatFile.setText("Xuất file");
+        jbtXuatFile.setBorder(null);
+        jbtXuatFile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtXuatFileMouseClicked(evt);
+            }
+        });
+        jbtXuatFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtXuatFileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,12 +199,13 @@ public class CapNhatMenu extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117)
-                        .addComponent(jbtThemTinMoi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtXuatFile, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbtThemTinMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -157,7 +217,8 @@ public class CapNhatMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtThemTinMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbtThemTinMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtXuatFile, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
@@ -174,7 +235,6 @@ public class CapNhatMenu extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(CapNhatMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jbtThemTinMoiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtThemTinMoiMouseClicked
@@ -185,6 +245,14 @@ public class CapNhatMenu extends javax.swing.JPanel {
             Logger.getLogger(CapNhatMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jbtThemTinMoiMouseClicked
+
+    private void jbtXuatFileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtXuatFileMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtXuatFileMouseClicked
+
+    private void jbtXuatFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXuatFileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtXuatFileActionPerformed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -193,6 +261,7 @@ public class CapNhatMenu extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbtThemTinMoi;
+    private javax.swing.JButton jbtXuatFile;
     private javax.swing.JTextField jtfTimKiem;
     // End of variables declaration//GEN-END:variables
 

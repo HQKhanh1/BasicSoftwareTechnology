@@ -48,7 +48,7 @@ public class DatLichHen extends javax.swing.JDialog {
                         jcbbQuanHuyen.removeAllItems();
                         showQuanHuyen(getIDTinh(tinh));
                     } catch (SQLException ex) {
-                        Logger.getLogger(CapNhat.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CapNhat2.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -64,7 +64,7 @@ public class DatLichHen extends javax.swing.JDialog {
                         jcbbXPTT.removeAllItems();
                         showXPTT(getIDHuyen(huyen));
                     } catch (SQLException ex) {
-                        Logger.getLogger(CapNhat.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CapNhat2.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class DatLichHen extends javax.swing.JDialog {
                     try {
                         idXa = getIDXa(xptt);
                     } catch (SQLException ex) {
-                        Logger.getLogger(CapNhat.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CapNhat2.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }

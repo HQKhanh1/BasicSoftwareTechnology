@@ -16,8 +16,6 @@ import DTTT.model.XaPhuong;
 import java.awt.Image;
 import java.io.IOException;
 import java.util.List;
-import javax.print.DocFlavor;
-import javax.print.DocFlavor.STRING;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -47,7 +45,7 @@ public class ClassTableModel {
                 if(columnIndex==1){
                     return ImageIcon.class; 
                 }
-                if(columnIndex == 6){
+                if(columnIndex == 4){
                     return String[].class;
                 }
                 else{
@@ -69,7 +67,8 @@ public class ClassTableModel {
             String MaTinTin = ChuanHoa.chuanHoaMa(tin.getMaTin());
             ImageIcon icon = null;
             byte[] HinhAnh = null;
-            String [] cars = { "Honda", "BMW", "Ford", "Mazda" };
+            
+//            String [] cars = { "Honda", "BMW", "Ford", "Mazda" };
             for ( int p = 0; p < listAnh.size(); p++){
                 anh = listAnh.get(p);
                 String  MaTinAnh = ChuanHoa.chuanHoaMa(anh.getMaTin());
@@ -79,7 +78,7 @@ public class ClassTableModel {
                     break;
                 }
             }
-            icon = new ImageIcon(new ImageIcon(HinhAnh).getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
+            icon = new ImageIcon(new ImageIcon(HinhAnh).getImage().getScaledInstance(300, 200, Image.SCALE_AREA_AVERAGING));
 
             obj[1] = icon;
 
@@ -130,27 +129,77 @@ public class ClassTableModel {
                         }       
                     }
                     
-            obj[7] = LoaiXa +" "+ TenXa + ", " + LoaiQuan+ " " +TenQH + ", " + LoaiTP +" "+ TenTP;
+            obj[3] = tin.getThongTinDiaChi()+", "+ shortenXa(LoaiXa)+ TenXa + ", " +shortenQuan(LoaiQuan)+TenQH + ", " + shortenTP(LoaiTP)+ TenTP;
             
             
+            String [] mutualColumn = {"","","","SĐT : "+tin.getSDTTin(),"Ngày đăng : "+tin.getNgayDang().toString(),"Tình trạng an ninh : "+tin.getAnNinh()};
             
-            obj[0] = tin.getMaTin();
+            obj[0] = tin.getMaTin().trim();
+            
             
             obj[2] = tin.getTieuDe();         
-            obj[3] = tin.isTrangThai()== true ? "Còn" : "Hết";
-            obj[4] = tin.getSDTTin();
+            obj[5] = tin.isTrangThai()== true ? "Còn" : "Hết";
             
-            obj[5] = tin.getNgayDang();
-            
-            obj[6] = tin.getAnNinh();
-//            obj[6] = cars;
-            System.out.println(cars.getClass());
-            obj[8] = tin.getThongTinDiaChi();
-           
-            
+            obj[4] = mutualColumn;
+                    
             dtm.addRow(obj);
         }
         return dtm;
     }
 
+    public String shortenXa(String LoaiXa){
+        
+        LoaiXa = ChuanHoa.chuanHoaMa(LoaiXa);
+        
+        if(LoaiXa.equals("Phường")){
+            LoaiXa = "P.";
+        }
+        if(LoaiXa.equals("Thị Trấn")){
+            LoaiXa = "TT.";
+        }
+        else{
+            LoaiXa = LoaiXa;
+        }
+        
+        return LoaiXa;
+        
+    }
+    
+    public String shortenQuan(String LoaiQuan){
+        
+//        LoaiQuan = ChuanHoa.chuanHoaMa(LoaiQuan);
+        
+        if(LoaiQuan.equals("Quận")){
+            LoaiQuan = "Q.";
+        }
+        if(LoaiQuan.equals("Thành Phố")){
+            LoaiQuan = "TP.";
+        }
+        if(LoaiQuan.equals("Thị Xã")){
+            LoaiQuan = "TX.";
+        }
+        if(LoaiQuan.equals("Huyện")){
+            LoaiQuan = "H.";
+        }
+        else{
+            LoaiQuan = LoaiQuan;
+        }
+        
+        return LoaiQuan;
+        
+    }
+    
+    public String shortenTP(String LoaiTP){
+        
+        if(LoaiTP.equals("Thành Phố")){
+            LoaiTP = "TP.";
+        }
+        if(LoaiTP.equals("Tỉnh")){
+            LoaiTP = "Tỉnh ";
+        }
+       
+        return LoaiTP;
+        
+    }
 }
+

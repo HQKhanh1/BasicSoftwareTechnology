@@ -8,16 +8,11 @@ package DTTT.controller;
 import DTTT.model.Anh;
 import DTTT.model.LoaiPhong;
 import DTTT.model.ThongTinPhong;
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.image.ImageProducer;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JPanel;
+
 /**
  *
  * @author Snorlax
@@ -92,6 +87,7 @@ public class ThongTinPhongController {
         jtfLoaiPhong.setText(lp.getTenLoaiPhong());
         jtaMoTa.setText(tinphong.getMoTa());
         jtfMaTin.setText(tinphong.getMaTin());
+        
     }
     
     public void setView(ThongTinPhong tinphong, LoaiPhong lp, String MaTinTin){

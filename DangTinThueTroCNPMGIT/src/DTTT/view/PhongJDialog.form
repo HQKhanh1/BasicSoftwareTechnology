@@ -387,7 +387,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/DTTT/images/round_ac_unit_white_24dp.png"/>
+                  <Image iconType="3" name="/DTTT/images/baseline_architecture_white_24dp.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Di&#x1ec7;n t&#xed;ch :"/>
               </Properties>

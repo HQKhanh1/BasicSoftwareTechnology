@@ -14,7 +14,10 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.event.*;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -86,7 +89,9 @@ public class ChuyenManHinh {
                         node = new TrangChinh();
                     } catch (IOException ex) {
                         ex.printStackTrace();
-                    }
+                    } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
                 }thu=1;
                 break;
                 

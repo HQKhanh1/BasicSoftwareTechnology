@@ -43,8 +43,6 @@ public class ThongTinPhong {
         this.MaLoaiPhong = MaLoaiPhong;
     }
     
-    
-
     public ThongTinPhong(String GiaPhong) {
         this.GiaPhong = GiaPhong;
     }
@@ -56,7 +54,6 @@ public class ThongTinPhong {
     public void setDienTich(String DienTich) {
         this.DienTich = DienTich;
     }
-    
     
 
     public String getMaTin() {

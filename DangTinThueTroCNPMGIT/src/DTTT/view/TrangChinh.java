@@ -7,6 +7,7 @@ package DTTT.view;
 
 import DTTT.controller.TinNhaTroController;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,7 +18,7 @@ public class TrangChinh extends javax.swing.JPanel {
     /**
      * Creates new form TrangChinh
      */
-    public TrangChinh() throws IOException {
+    public TrangChinh() throws IOException, SQLException {
         initComponents();
             this.setVisible(true);
         TinNhaTroController controller = new TinNhaTroController(jpnView, jtfSearch);

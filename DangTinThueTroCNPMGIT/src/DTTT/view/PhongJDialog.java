@@ -54,12 +54,21 @@ public class PhongJDialog extends javax.swing.JDialog {
     
     private ThongTinPhongService thongTinPhongService = null;
     
-    public PhongJDialog(ThongTinPhong tinphong, LoaiPhong lp) throws SQLException {
+//    public PhongJDialog(ThongTinPhong tinphong, LoaiPhong lp) throws SQLException {
+//        initComponents();
+//        this.anhService = new AnhServiceImpl();
+//        this.thongTinPhongService = new  ThongTinPhongServiceImpl();
+//        ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
+//        controller.setView(tinphong, lp);
+//         
+//    }
+    
+    public PhongJDialog(ThongTinPhong tinphong, LoaiPhong lp) {
         initComponents();
         this.anhService = new AnhServiceImpl();
         this.thongTinPhongService = new  ThongTinPhongServiceImpl();
-        ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
-        controller.setView(tinphong, lp);
+//        ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
+//        controller.setView(tinphong, lp);
          
     }
     
@@ -231,7 +240,7 @@ public class PhongJDialog extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DTTT/images/round_ac_unit_white_24dp.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DTTT/images/baseline_architecture_white_24dp.png"))); // NOI18N
         jLabel6.setText("Diện tích :");
 
         jtfDienTich.setEditable(false);

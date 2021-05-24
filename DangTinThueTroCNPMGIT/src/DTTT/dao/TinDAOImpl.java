@@ -30,13 +30,11 @@ public class TinDAOImpl implements TinDAO{
                 tin.setMaTin(rs.getString("MaTin"));
                 tin.setTieuDe(rs.getString("TieuDe"));
                 tin.setSDTTin(rs.getString("SDTTin"));
-//                tin.setDienTich(rs.getFloat("DienTich"));
                 tin.setNgayDang(rs.getDate("NgayDang"));
                 tin.setAnNinh(rs.getString("AnNinh"));
                 tin.setMaXa(rs.getString("MaXa"));
                 tin.setThongTinDiaChi(rs.getString("ThongTinDiaChi"));
                 tin.setTrangThai(rs.getBoolean("TrangThai"));
-//                tin.setTaiKhoan((TaiKhoan) rs.getObject("TaiKhoan"));
                 list.add(tin);
             }
             ps.close();
