@@ -100,7 +100,9 @@ public class DatLichHen extends javax.swing.JDialog {
                     thoiGianHen = new java.sql.Date(date.getTime());
                     if(KTTK.getTtk().length()!=0){
                         taiKhoan = KTTK.getTtk();
-                        if(thoiGianHen.after(dateNow)){
+                        if(DatLicHenImpl.checkTaiKhoanTrongMaTin(MaTinTin) == 1){
+                            JOptionPane.showMessageDialog(rootPane, "Bạn đang đặt lịch hẹn với tin mình đã đăng!");
+                        }else if(thoiGianHen.after(dateNow)){
                             maTin =MaTinTin;
                             maXa = getIDXa(jcbbXPTT.getSelectedItem().toString());
                             moTa = jtxtMoTa.getText();
@@ -209,10 +211,10 @@ public class DatLichHen extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jDate_LichHen = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         jtbnQuayLai = new javax.swing.JButton();
         jbtnXacNhan = new javax.swing.JButton();
+        jDate_LichHen = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jcbbTinhTP = new javax.swing.JComboBox<>();
@@ -267,8 +269,6 @@ public class DatLichHen extends javax.swing.JDialog {
         jLabel3.setText("Thời gian hẹn");
         jLabel3.setOpaque(true);
 
-        jDate_LichHen.setDateFormatString("dd/MM/yyyy");
-
         jLabel4.setBackground(new java.awt.Color(204, 255, 255));
         jLabel4.setText("Ngày hẹn:");
         jLabel4.setOpaque(true);
@@ -291,6 +291,8 @@ public class DatLichHen extends javax.swing.JDialog {
             }
         });
 
+        jDate_LichHen.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -301,11 +303,11 @@ public class DatLichHen extends javax.swing.JDialog {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jDate_LichHen, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jDate_LichHen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jtbnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addComponent(jbtnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -315,9 +317,9 @@ public class DatLichHen extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jDate_LichHen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDate_LichHen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jtbnQuayLai, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)

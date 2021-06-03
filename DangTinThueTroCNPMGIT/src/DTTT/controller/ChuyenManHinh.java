@@ -6,6 +6,7 @@ import DTTT.dao.KTTK;
 import DTTT.view.CapNhatMenu;
 import DTTT.view.DangNhap;
 import DTTT.view.DatLichHen;
+import DTTT.view.HienThiLichHen;
 import DTTT.view.TK;
 import DTTT.view.TrangChinh;
 import javax.swing.JLabel;
@@ -83,6 +84,20 @@ public class ChuyenManHinh {
         @Override
         public void mouseClicked(MouseEvent e) {
             switch(loai){
+                case "LichHen":
+                {
+                        
+                    if(KTTK.getTtk().length()!=0){
+                        node = new HienThiLichHen();
+                        thu=1;
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Bạn cần đăng nhập tài khoản cho chức năng này!");
+                        thu=0;
+                    }
+                break;
+                    
+                }
                 case "TrangChinh":
                 {
                     try {
