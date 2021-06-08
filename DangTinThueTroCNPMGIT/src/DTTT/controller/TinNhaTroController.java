@@ -38,6 +38,7 @@ import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -46,6 +47,10 @@ import java.util.Vector;
 import javax.accessibility.AccessibleContext;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+=======
+import java.util.List;
+import java.util.Vector;
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -82,7 +87,11 @@ public class TinNhaTroController {
     private ClassTableModel classTableModel = null;
     
     private final String[] COLUMNS = {"Mã tin","Ảnh", "Tiêu đề",
+<<<<<<< HEAD
         "Thông tin địa chỉ", "Thông tin chung","Giá Phòng" };
+=======
+        "Thông tin địa chỉ", "Thông tin chung","Trạng thái" };
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     
     
     private ThongTinTinService thongTinService = null;
@@ -107,7 +116,11 @@ public class TinNhaTroController {
     
     
     // set thông tin vào bảng
+<<<<<<< HEAD
     public void setDataToTable() throws IOException, SQLException {
+=======
+    public void setDataToTable() throws IOException {
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         
         //Danh sách các list có liên quan tới thông tin được show trên bảng
         List<ThongTinTin> listItem = thongTinService.getList();
@@ -190,8 +203,13 @@ public class TinNhaTroController {
             @Override
             public void changedUpdate(DocumentEvent e) {
             }
+<<<<<<< HEAD
         }); 
               
+=======
+        });
+        
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         // các thao tác với bảng 
         table.addMouseListener(new MouseAdapter() {
             @Override
@@ -202,7 +220,7 @@ public class TinNhaTroController {
                     
                     // Lấy mã tin ở hàng được chọn và ở cột 0
                     int selectedRowIndex = table.getSelectedRow();
-                    String MaTinTin = ChuanHoa.chuanHoaMa((String)table.getValueAt(selectedRowIndex, 0)) ;
+                    String MaTinTin = ChuanHoa.chuanHoaMa((String)table.getValueAt(selectedRowIndex, 0));
                     selectedRowIndex = table.convertRowIndexToModel(selectedRowIndex);
                     
                     //lấy tiêu đề ở hàng được chọn cột 2
@@ -225,7 +243,11 @@ public class TinNhaTroController {
                         }
                          
                                 tinphong = listPhong.get(phongIndex); 
+<<<<<<< HEAD
                         // vòng for để duyệt lấy từng phòng để vào jdialog         
+=======
+                     // vòng for để duyệt lấy từng phòng để vào jdialog         
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                         for( int k = 0; k < listLP.size(); k++  ){
                                 lp = listLP.get(k);
                                 if (tinphong.getMaLoaiPhong().equals(lp.getMaLoaiPhong())){
@@ -257,8 +279,12 @@ public class TinNhaTroController {
 
 
         //Thiết kế 
+<<<<<<< HEAD
         
         table.setFont(new Font("Arial",0,18));
+=======
+        table.setFont(new Font("Arial",0,16));
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
         table.getTableHeader().setPreferredSize(new Dimension(100, 50));
@@ -286,18 +312,28 @@ public class TinNhaTroController {
         //Cột mã tin
         table.getColumnModel().getColumn(0).setMaxWidth(48);
         table.getColumn("Mã tin").setCellRenderer(centerRenderer);
+<<<<<<< HEAD
          
         //Cột địa chỉ
         
+=======
+                        
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     
         //Cột hình ảnh
         table.getColumnModel().getColumn(1).setMaxWidth(300);
         table.getColumnModel().getColumn(1).setMinWidth(300);
        
         //Cột trạng thái
+<<<<<<< HEAD
         table.getColumnModel().getColumn(5).setMaxWidth(150);
         table.getColumnModel().getColumn(5).setMinWidth(150);
         table.getColumn("Giá Phòng").setCellRenderer(centerRenderer);
+=======
+        table.getColumnModel().getColumn(5).setMaxWidth(80);
+        table.getColumnModel().getColumn(5).setMinWidth(80);
+        table.getColumn("Trạng thái").setCellRenderer(centerRenderer);
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
 
         //Cột tiêu đề
         table.getColumnModel().getColumn(3).setPreferredWidth(300);

@@ -38,6 +38,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Component id="jbtQuayLai" min="-2" pref="133" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -85,6 +86,56 @@
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+=======
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jbtQuayLai" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jbtXoaTin" min="-2" pref="151" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jLabel13" max="32767" attributes="0"/>
+                                  <Component id="jLabel3" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jcbbLoaiHinhThue" min="-2" pref="167" max="-2" attributes="0"/>
+                                  <Component id="jcbbAnNinh" min="-2" pref="167" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="121" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jtfSDT" min="-2" pref="210" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jtfTieuDe" min="-2" pref="265" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -143,6 +194,18 @@
                           <Component id="jcbbXPTT" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< HEAD
+=======
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel13" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="jcbbLoaiHinhThue" alignment="3" pref="40" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel13" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="jcbbLoaiHinhThue" alignment="3" max="32767" attributes="0"/>
@@ -154,6 +217,7 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -261,6 +325,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jbtXoaTin" min="-2" pref="133" max="-2" attributes="0"/>
@@ -272,10 +337,19 @@
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
+=======
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jlbDienTich" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -306,6 +380,55 @@
                               <Component id="jtfTenPhong" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+=======
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabel9" min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jtfGia" min="-2" pref="114" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="jtfTenPhong" min="-2" pref="231" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jlbDienTich" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jtfDienTich" min="-2" pref="115" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jtfTongPhong" min="-2" pref="189" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jbtLuuTin" min="-2" pref="216" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jButton1" min="-2" pref="138" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jbtThemAnh" min="-2" pref="141" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -328,6 +451,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -390,6 +514,71 @@
                       <Component id="jbtXoaTin" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+=======
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel12" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel8" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jtfTenPhong" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel10" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jtfTongPhong" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="jbtThemAnh" min="-2" pref="65" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jtfDienTich" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jlbDienTich" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel9" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jtfGia" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="79" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="JrbtCo" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jbtLuuTin" min="-2" pref="68" max="-2" attributes="0"/>
+                                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="JrbtKhong" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
               </Group>
           </Group>
         </DimensionLayout>
@@ -515,7 +704,10 @@
             </Property>
           </Properties>
           <Events>
+<<<<<<< HEAD
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfTenPhongActionPerformed"/>
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfTenPhongKeyTyped"/>
           </Events>
         </Component>
@@ -602,13 +794,28 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="1"/>
             </Property>
+<<<<<<< HEAD
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="(vn&#x111;)"/>
+=======
+            <Property name="text" type="java.lang.String" value="Di&#x1ec7;n t&#xed;ch:"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfDienTich">
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="L&#xe0;m m&#x1edb;i"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="80" green="35" red="0" type="rgb"/>
@@ -629,6 +836,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="1"/>
             </Property>
+<<<<<<< HEAD
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -653,12 +861,19 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
+=======
+            <Property name="text" type="java.lang.String" value="(vn&#x111;)"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jbtXoaTinMouseClicked"/>
           </Events>
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="jbtThemAnh">
+=======
+        <Component class="javax.swing.JTextField" name="jtfDienTich">
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="50" green="af" red="4c" type="rgb"/>
@@ -666,6 +881,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
             </Property>
+<<<<<<< HEAD
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
@@ -679,7 +895,20 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtThemAnhActionPerformed"/>
+=======
+          </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtfDienTichKeyTyped"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel15">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="(m2)"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

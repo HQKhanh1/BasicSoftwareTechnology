@@ -115,11 +115,16 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="DatLichHen_Panel" max="-2" attributes="0"/>
                           <Component id="TrangChinh_Panel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+=======
+                      <Component id="DatLichHen_Panel" min="96" pref="96" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                       <Component id="jpnView" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -144,6 +149,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="LichHen_Panel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -151,13 +157,24 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ThongKe_Panel" min="-2" pref="264" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="DangNhap_Panel" min="-2" max="-2" attributes="0"/>
+=======
+                          <Component id="iconTK" min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace pref="46" max="32767" attributes="0"/>
+                          <Component id="LichHen_Panel" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="CapNhat_Panel" min="-2" pref="264" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="TrangChinh_Panel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
+                          <Component id="DangNhap_Panel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <Component id="CapNhat_Panel" alignment="0" max="32767" attributes="0"/>
                       <Component id="ThongKe_Panel" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -165,6 +182,22 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Component id="LichHen_Panel" alignment="0" max="32767" attributes="0"/>
+=======
+                      <Component id="iconTK" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="LichHen_Panel" alignment="1" max="32767" attributes="0"/>
+                              <Component id="CapNhat_Panel" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="TrangChinh_Panel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="DangNhap_Panel" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -184,16 +217,26 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="DangNhap_Label" pref="259" max="32767" attributes="0"/>
+=======
+                              <Component id="TrangChinh_Label" pref="162" max="32767" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="DangNhap_Label" pref="58" max="32767" attributes="0"/>
+=======
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="TrangChinh_Label" pref="58" max="32767" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -235,8 +278,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="CapNhat_Label" min="-2" pref="244" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+=======
+                              <Component id="DangNhap_Label" pref="259" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -244,7 +292,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="CapNhat_Label" pref="0" max="32767" attributes="0"/>
+=======
+                              <Component id="DangNhap_Label" pref="0" max="32767" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -298,8 +350,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="ThongKe_Label" pref="0" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+=======
+                              <Component id="CapNhat_Label" pref="0" max="32767" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -339,19 +395,28 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="LichHen_Label" min="-2" pref="244" max="-2" attributes="0"/>
+=======
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LichHen_Label" min="-2" pref="184" max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="LichHen_Label" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
+=======
+                          <Component id="LichHen_Label" alignment="1" max="32767" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                       </Group>
                     </DimensionLayout>
                   </Layout>
@@ -390,6 +455,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace min="0" pref="559" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
@@ -422,6 +488,9 @@
                           <Component id="TrangChinh_Label" pref="58" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
+=======
+                      <EmptySpace min="0" pref="549" max="32767" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                   </Group>
                 </DimensionLayout>
               </Layout>

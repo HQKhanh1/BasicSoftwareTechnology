@@ -128,6 +128,7 @@ public class HienThiLichHen extends javax.swing.JPanel {
 
         jTblLichHen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+<<<<<<< HEAD
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -135,6 +136,15 @@ public class HienThiLichHen extends javax.swing.JPanel {
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
+=======
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
             }
         ));
         jTblLichHen.setShowGrid(false);
@@ -153,8 +163,13 @@ public class HienThiLichHen extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
                 .addContainerGap())
+=======
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));

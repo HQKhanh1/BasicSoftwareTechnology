@@ -8,9 +8,12 @@ package DTTT.view;
 import DTTT.controller.TinNhaTroController;
 import java.io.IOException;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
 
 /**
  *
@@ -21,7 +24,10 @@ public class TrangChinh extends javax.swing.JPanel {
     /**
      * Creates new form TrangChinh
      */
+<<<<<<< HEAD
     
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     public TrangChinh() throws IOException, SQLException {
         initComponents();
         this.setVisible(true);

@@ -10,9 +10,12 @@ import DTTT.dao.DBConnect;
 import DTTT.dao.KTTK;
 import DTTT.model.ThongTinPhong;
 import DTTT.model.ThongTinTin;
+<<<<<<< HEAD
 import java.io.File;
 import java.io.FileOutputStream;
 import static java.lang.System.out;
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,9 +74,47 @@ public class CapNhatMenu extends javax.swing.JPanel {
              
         } catch (SQLException ex) {
             ex.printStackTrace();
+<<<<<<< HEAD
+=======
         }
     }
     
+  private List<ThongTinTin> lay_TinList(){
+        Connection conn = DBConnect.getConnection();
+        
+        
+        String sql = "SELECT * FROM Thong_Tin_Tin where TaiKhoan = ?";
+        List<ThongTinTin> list = new ArrayList<>();
+//        Vector<String> vt;
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, KTTK.getTtk());
+            ResultSet rs = ps.executeQuery(); 
+            while(rs.next()){
+                ThongTinTin ttt = new ThongTinTin();
+
+//                ttt.setMaTin(rs.getString("MaTin"));
+                ttt.setTieuDe(rs.getString("TieuDe"));
+                ttt.setMaTin(rs.getString("SDTTin"));
+                ttt.setTieuDe(rs.getString("NgayDang"));
+                ttt.setMaTin(rs.getString("AnNinh"));
+                ttt.setTieuDe(rs.getString("ThongTinDiaChi"));
+
+                list.add(ttt);
+            }
+            ps.close();
+            rs.close();
+            conn.close();
+            return list;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
+        }
+        return null;
+    }
+    
+<<<<<<< HEAD
   private List<ThongTinTin> lay_TinList(){
         Connection conn = DBConnect.getConnection();
         
@@ -107,6 +148,8 @@ public class CapNhatMenu extends javax.swing.JPanel {
         return null;
     }
     
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -259,6 +302,7 @@ public class CapNhatMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtThemTinMoiMouseClicked
 
     private void jbtXuatFileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtXuatFileMouseClicked
+<<<<<<< HEAD
 
         File fileLocation = null;
         JFileChooser chooser = new JFileChooser();
@@ -327,6 +371,13 @@ public class CapNhatMenu extends javax.swing.JPanel {
 
     private void jbtXuatFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXuatFileActionPerformed
         
+=======
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbtXuatFileMouseClicked
+
+    private void jbtXuatFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXuatFileActionPerformed
+        // TODO add your handling code here:
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     }//GEN-LAST:event_jbtXuatFileActionPerformed
    
 

@@ -85,7 +85,12 @@ public class ClassTableModel {
             String MaTinTin = ChuanHoa.chuanHoaMa(tin.getMaTin());
             ImageIcon icon = null;
             byte[] HinhAnh = null;
+<<<<<<< HEAD
           
+=======
+            
+//            String [] cars = { "Honda", "BMW", "Ford", "Mazda" };
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
             for ( int p = 0; p < listAnh.size(); p++){
                 anh = listAnh.get(p);
                 String  MaTinAnh = ChuanHoa.chuanHoaMa(anh.getMaTin());
@@ -95,9 +100,20 @@ public class ClassTableModel {
                     break;
                 }
             }
+<<<<<<< HEAD
+=======
+            icon = new ImageIcon(new ImageIcon(HinhAnh).getImage().getScaledInstance(300, 200, Image.SCALE_AREA_AVERAGING));
+
+            obj[1] = icon;
+
+              //cột 9 Phường\xã
+            String MaXaTin = ChuanHoa.chuanHoaMa(listItem.get(i).getMaXa());
+           
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
             
             icon = new ImageIcon(new ImageIcon(HinhAnh).getImage().getScaledInstance(300, 200, Image.SCALE_AREA_AVERAGING));
 
+<<<<<<< HEAD
             obj[1] = icon;
             
               //cột 9 Phường\xã
@@ -155,6 +171,34 @@ public class ClassTableModel {
             obj[5] = GiaPhong + " VNĐ";
             obj[4] = mutualColumn;
 
+=======
+                }    
+                    for(int h = 0; h < listTP.size(); h++){
+                        tp = listTP.get(h);
+                        String MaTPQH = ChuanHoa.chuanHoaMa(qh.getMaTP());
+                        String MaTP = ChuanHoa.chuanHoaMa(tp.getMaTP());
+                        
+                        if(MaTPQH.equals(MaTP)){
+                            TenTP = listTP.get(h).getTenTP();
+                            LoaiTP = listTP.get(h).getLoai();
+                            break;
+                        }       
+                    }
+                    
+            obj[3] = tin.getThongTinDiaChi()+", "+ shortenXa(LoaiXa)+ TenXa + ", " +shortenQuan(LoaiQuan)+TenQH + ", " + shortenTP(LoaiTP)+ TenTP;
+            
+            
+            String [] mutualColumn = {"","","","SĐT : "+tin.getSDTTin(),"Ngày đăng : "+tin.getNgayDang().toString(),"Tình trạng an ninh : "+tin.getAnNinh()};
+            
+            obj[0] = tin.getMaTin().trim();
+            
+            
+            obj[2] = tin.getTieuDe();         
+            obj[5] = tin.isTrangThai()== true ? "Còn" : "Hết";
+            
+            obj[4] = mutualColumn;
+                    
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
             dtm.addRow(obj);
         }
         return dtm;
@@ -216,6 +260,7 @@ public class ClassTableModel {
     }
     
 
+<<<<<<< HEAD
     public String getIDXa(String MaTin) throws SQLException{
         Connection conn = DBConnect.getConnection();
         String sql = "SELECT MaXa FROM Thong_Tin_Tin WHERE MaTin=?";
@@ -336,3 +381,61 @@ public class ClassTableModel {
 }
 
             
+=======
+    public String shortenXa(String LoaiXa){
+        
+        LoaiXa = ChuanHoa.chuanHoaMa(LoaiXa);
+        
+        if(LoaiXa.equals("Phường")){
+            LoaiXa = "P.";
+        }
+        if(LoaiXa.equals("Thị Trấn")){
+            LoaiXa = "TT.";
+        }
+        else{
+            LoaiXa = LoaiXa;
+        }
+        
+        return LoaiXa;
+        
+    }
+    
+    public String shortenQuan(String LoaiQuan){
+        
+//        LoaiQuan = ChuanHoa.chuanHoaMa(LoaiQuan);
+        
+        if(LoaiQuan.equals("Quận")){
+            LoaiQuan = "Q.";
+        }
+        if(LoaiQuan.equals("Thành Phố")){
+            LoaiQuan = "TP.";
+        }
+        if(LoaiQuan.equals("Thị Xã")){
+            LoaiQuan = "TX.";
+        }
+        if(LoaiQuan.equals("Huyện")){
+            LoaiQuan = "H.";
+        }
+        else{
+            LoaiQuan = LoaiQuan;
+        }
+        
+        return LoaiQuan;
+        
+    }
+    
+    public String shortenTP(String LoaiTP){
+        
+        if(LoaiTP.equals("Thành Phố")){
+            LoaiTP = "TP.";
+        }
+        if(LoaiTP.equals("Tỉnh")){
+            LoaiTP = "Tỉnh ";
+        }
+       
+        return LoaiTP;
+        
+    }
+}
+
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521

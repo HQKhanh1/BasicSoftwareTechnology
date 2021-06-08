@@ -18,6 +18,7 @@ import DTTT.service.ThongTinPhongService;
 import DTTT.service.ThongTinPhongServiceImpl;
 import DTTT.utility.ClassTableModel;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -407,9 +408,37 @@ public class PhongJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jtfDienTichActionPerformed
 
     private void jbtXemHinhPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXemHinhPhongActionPerformed
+<<<<<<< HEAD
 
         MaTinTin = ChuanHoa.chuanHoaMa(jtfMaTin.getText());
 
+=======
+//        int anhIndex = 0;
+        
+         
+        
+//        List<ThongTinPhong> listPhong = thongTinPhongService.getList();
+//        List<Anh> listAnh = anhService.getList();
+        
+//        for (int i = 0; i < listAnh.size(); i++) {
+//            anhIndex = i;
+//        }
+//        picture = listAnh.get(anhIndex).getHinhAnh();
+//        System.out.println(picture);
+              
+//        listAnhByte.add(picture);
+              
+//        Hinh hinh = new Hinh(hinhAnh.getDsha()); 
+//            ha.setDsha(hinh.layDSHinh());    
+//        HinhPhong hinh = new HinhPhong(listAnh, MaTinTin);  
+           
+        MaTinTin = jtfMaTin.getText();
+        MaTinTin = ChuanHoa.chuanHoaMa(MaTinTin);
+        
+       
+        
+        System.out.println("Mã tin: "+MaTinTin+"/");
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         try {
             //        System.out.println(hinhAnh.getDsha());
             setTin(MaTinTin);
@@ -424,14 +453,31 @@ public class PhongJDialog extends javax.swing.JDialog {
 
     private void jbtnHenXemPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnHenXemPhongActionPerformed
         try {
+<<<<<<< HEAD
             MaTinTin = jtfMaTin.getText();
             MaTinTin = ChuanHoa.xoaKhoangTrang(MaTinTin);
             
+=======
+            // TODO add your handling code here:
+            
+            MaTinTin = jtfMaTin.getText();
+            MaTinTin = ChuanHoa.xoaKhoangTrang(MaTinTin);
+            
+            
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
             DatLichHen dl = new DatLichHen(MaTinTin);
             dl.setVisible(false);
             dl.setBounds(90, 90, 620, 470);
             dl.setLocationRelativeTo(null);
             dl.setVisible(true);
+<<<<<<< HEAD
+=======
+            Container frame = jbtnHenXemPhong.getParent();
+            do 
+            frame = frame.getParent(); 
+            while (!(frame instanceof PhongJDialog));                                      
+            ((PhongJDialog) frame).dispose();
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         } catch (SQLException ex) {
             Logger.getLogger(PhongJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }

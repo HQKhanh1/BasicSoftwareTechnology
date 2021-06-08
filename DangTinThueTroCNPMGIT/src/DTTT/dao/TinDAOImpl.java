@@ -37,7 +37,10 @@ public class TinDAOImpl implements TinDAO{
                 tin.setMaXa(rs.getString("MaXa"));
                 tin.setThongTinDiaChi(rs.getString("ThongTinDiaChi"));
                 tin.setTrangThai(rs.getBoolean("TrangThai"));
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                 list.add(tin);
             }
             ps.close();

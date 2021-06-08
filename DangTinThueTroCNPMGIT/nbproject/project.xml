@@ -3,7 +3,11 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>DangTinThueTroCNPMGIT</name>
+=======
+            <name>DangTinThueTroCNPMRApKhanh</name>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
