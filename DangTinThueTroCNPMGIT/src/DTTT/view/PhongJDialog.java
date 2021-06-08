@@ -18,6 +18,7 @@ import DTTT.service.ThongTinPhongService;
 import DTTT.service.ThongTinPhongServiceImpl;
 import DTTT.utility.ClassTableModel;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -459,6 +460,11 @@ public class PhongJDialog extends javax.swing.JDialog {
             dl.setBounds(90, 90, 620, 470);
             dl.setLocationRelativeTo(null);
             dl.setVisible(true);
+            Container frame = jbtnHenXemPhong.getParent();
+            do 
+            frame = frame.getParent(); 
+            while (!(frame instanceof PhongJDialog));                                      
+            ((PhongJDialog) frame).dispose();
         } catch (SQLException ex) {
             Logger.getLogger(PhongJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -8,6 +8,7 @@ package DTTT.view;
 import DTTT.dao.DBConnect;
 import DTTT.dao.KTTK;
 import DTTT.dao.DatLicHenImpl;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -85,7 +86,8 @@ public class DatLichHen extends javax.swing.JDialog {
             }
         });
         jbtnXacNhan.addActionListener(new ActionListener() {
-
+                
+            
             @Override
             public void actionPerformed(ActionEvent e) {
                 String maLichHen = "", maTin = "", taiKhoan = "", maXa = "", moTa = "",thoiGianHentxt;
@@ -93,6 +95,7 @@ public class DatLichHen extends javax.swing.JDialog {
                 java.util.Date date;
                 long millis=System.currentTimeMillis();  
                 java.sql.Date dateNow=new java.sql.Date(millis);
+                maTin =MaTinTin;
                 try {
                     SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
                     thoiGianHentxt = formatter1.format(jDate_LichHen.getDate());
@@ -102,8 +105,10 @@ public class DatLichHen extends javax.swing.JDialog {
                         taiKhoan = KTTK.getTtk();
                         if(DatLicHenImpl.checkTaiKhoanTrongMaTin(MaTinTin) == 1){
                             JOptionPane.showMessageDialog(rootPane, "Bạn đang đặt lịch hẹn với tin mình đã đăng!");
-                        }else if(thoiGianHen.after(dateNow)){
-                            maTin =MaTinTin;
+                        }else if(DatLicHenImpl.laySoPhong(maTin) <= 0){
+                            JOptionPane.showMessageDialog(rootPane, "Tin bạn đang xem không còn phòng!\n Vui lòng liên hệ trực tiếp đến người đăng tin!");
+                        }
+                        else if(thoiGianHen.after(dateNow)){
                             maXa = getIDXa(jcbbXPTT.getSelectedItem().toString());
                             moTa = jtxtMoTa.getText();
                             maLichHen = DTTT.dao.DatLicHenImpl.layMalichHen();
@@ -114,7 +119,13 @@ public class DatLichHen extends javax.swing.JDialog {
                                             JOptionPane.YES_NO_OPTION);
                             if(check == JOptionPane.YES_OPTION){
                                 DTTT.dao.DatLicHenImpl.themLichHen(lichhen);
+                                DatLicHenImpl.truSoPhong(maTin);
                                 JOptionPane.showMessageDialog(rootPane, "Đặt lịch hẹn thành công!");
+                                Container frame = jbtnXacNhan.getParent();
+                                do 
+                                frame = frame.getParent(); 
+                                while (!(frame instanceof DatLichHen));                                      
+                                ((DatLichHen) frame).dispose();
                             }
                         }else{
                             JOptionPane.showMessageDialog(rootPane, "Thời gian hẹn không phù hợp! Mời bạn chọn lại!");
@@ -129,6 +140,8 @@ public class DatLichHen extends javax.swing.JDialog {
                     Logger.getLogger(DatLichHen.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            
+            
         });
     }
     

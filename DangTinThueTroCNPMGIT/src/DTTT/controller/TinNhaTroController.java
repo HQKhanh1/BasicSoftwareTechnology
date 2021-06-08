@@ -152,7 +152,7 @@ public class TinNhaTroController {
                     
                     // Lấy mã tin ở hàng được chọn và ở cột 0
                     int selectedRowIndex = table.getSelectedRow();
-                    String MaTinTin = ChuanHoa.chuanHoaMa((String)table.getValueAt(selectedRowIndex, 0)) ;
+                    String MaTinTin = ChuanHoa.chuanHoaMa((String)table.getValueAt(selectedRowIndex, 0));
                     selectedRowIndex = table.convertRowIndexToModel(selectedRowIndex);
                     
                     //lấy tiêu đề ở hàng được chọn cột 2

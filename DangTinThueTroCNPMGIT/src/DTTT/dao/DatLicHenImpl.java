@@ -247,10 +247,37 @@ public class DatLicHenImpl {
         }
         return diaChi;
     }
-    
+    public static int laySoPhong(String maTin) throws SQLException{
+        int soPhong = 0;
+        String queryPhong = "select * from Thong_Tin_Phong";
+        Connection cnn = DBConnect.getConnection();
+        PreparedStatement psTin = cnn.prepareStatement(queryPhong);
+        ResultSet rsTin = psTin.executeQuery();
+        while(rsTin.next()){
+                String maTinTam = ChuanHoa.xoaKhoangTrang(rsTin.getString("MaTin"));
+                if(maTin.equals(maTinTam)){
+                    String soPhongChu = ChuanHoa.xoaKhoangTrang(rsTin.getString("SoPhong"));
+                    int soPhongTam = Integer.parseInt(soPhongChu);
+                    soPhong = soPhongTam;
+                }
+            }
+        return soPhong;
+    }
+    public static void truSoPhong(String maTin) throws SQLException{
+        maTin = ChuanHoa.xoaKhoangTrang(maTin);
+        
+        int soPhong = laySoPhong(maTin) - 1;
+        String queryPhong = "UPDATE Thong_Tin_Phong\n" +
+                            "SET soPhong = ? "+
+                            "WHERE maTin = ?;";
+        Connection cnn = DBConnect.getConnection();
+        PreparedStatement psTin = cnn.prepareStatement(queryPhong);
+        psTin.setInt(1, soPhong);
+        psTin.setString(2, maTin);
+        int rs = psTin.executeUpdate();
+    }
     
     public static void main(String[] args) throws SQLException {
-        System.out.println(checkLayTaiKhoanTrongMaTin("3"));
     }
     
 }
