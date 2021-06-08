@@ -247,6 +247,12 @@ public class DatLicHenImpl {
         }
         return diaChi;
     }
+<<<<<<< HEAD
+    
+    
+    public static void main(String[] args) throws SQLException {
+        System.out.println(checkLayTaiKhoanTrongMaTin("3"));
+=======
     public static int laySoPhong(String maTin) throws SQLException{
         int soPhong = 0;
         String queryPhong = "select * from Thong_Tin_Phong";
@@ -278,6 +284,7 @@ public class DatLicHenImpl {
     }
     
     public static void main(String[] args) throws SQLException {
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     }
     
 }

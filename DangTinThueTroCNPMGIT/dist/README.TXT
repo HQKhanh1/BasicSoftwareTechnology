@@ -11,7 +11,11 @@ JAR files manifest file (MANIFEST.MF).
 To run the project from the command line, go to the dist folder and
 type the following:
 
+<<<<<<< HEAD
+java -jar "DangTinThueTroCNPMGIT.jar" 
+=======
 java -jar "DangTinThueTroCNPMRApKhanh.jar" 
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
 
 To distribute this project, zip up the dist folder (including the lib folder)
 and distribute the ZIP file.

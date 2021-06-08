@@ -5,12 +5,26 @@
             <url>src/DTTT/view/CapNhatMenu.java</url>
             <bookmark id="1">
                 <name/>
-                <line>47</line>
+                <line>64</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+<<<<<<< HEAD
+        <group/>
+=======
+        <group>
+            <file>file:/D:/Nam_III/Nhap_Mon_Cong_Nghe_Phan_Mem/DangTinThueTroCNPMRAP_Version2/BasicSoftwareTechnology/DangTinThueTroCNPMGIT/src/DTTT/controller/ThongTinPhongController.java</file>
+            <file>file:/D:/Nam_III/Nhap_Mon_Cong_Nghe_Phan_Mem/DangTinThueTroCNPMRAP_Version2/BasicSoftwareTechnology/DangTinThueTroCNPMGIT/src/DTTT/view/DatLichHen.java</file>
+            <file>file:/D:/Nam_III/Nhap_Mon_Cong_Nghe_Phan_Mem/DangTinThueTroCNPMRAP_Version2/BasicSoftwareTechnology/DangTinThueTroCNPMGIT/src/DTTT/view/HienThiLichHen.java</file>
+            <file>file:/D:/Nam_III/Nhap_Mon_Cong_Nghe_Phan_Mem/DangTinThueTroCNPMRAP_Version2/BasicSoftwareTechnology/DangTinThueTroCNPMGIT/src/DTTT/dao/DatLicHenImpl.java</file>
+            <file>file:/D:/Nam_III/Nhap_Mon_Cong_Nghe_Phan_Mem/DangTinThueTroCNPMRAP_Version2/BasicSoftwareTechnology/DangTinThueTroCNPMGIT/src/DTTT/controller/ChuyenManHinh.java</file>
+        </group>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
+>>>>>>> 2f2df2901625c06d94c36093209a2db6eb7d9f44
     </open-files>
 </project-private>

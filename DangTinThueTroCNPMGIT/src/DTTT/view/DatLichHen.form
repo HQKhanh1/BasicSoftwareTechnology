@@ -175,12 +175,21 @@
                               <Component id="jLabel3" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jDate_LichHen" pref="170" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jtbnQuayLai" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+=======
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jDate_LichHen" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jtbnQuayLai" min="-2" pref="80" max="-2" attributes="0"/>
                                   <EmptySpace pref="79" max="32767" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                                   <Component id="jbtnXacNhan" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -194,9 +203,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" pref="35" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jDate_LichHen" max="32767" attributes="0"/>
+                              <Component id="jLabel4" max="32767" attributes="0"/>
+=======
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel4" min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="jDate_LichHen" min="-2" max="-2" attributes="0"/>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -222,6 +237,14 @@
                     <Property name="opaque" type="boolean" value="true"/>
                   </Properties>
                 </Component>
+<<<<<<< HEAD
+                <Component class="com.toedter.calendar.JDateChooser" name="jDate_LichHen">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+                  </Properties>
+                </Component>
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -259,11 +282,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnXacNhanActionPerformed"/>
                   </Events>
                 </Component>
+<<<<<<< HEAD
+=======
                 <Component class="com.toedter.calendar.JDateChooser" name="jDate_LichHen">
                   <Properties>
                     <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
                   </Properties>
                 </Component>
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel5">

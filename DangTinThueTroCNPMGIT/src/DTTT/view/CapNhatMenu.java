@@ -10,6 +10,12 @@ import DTTT.dao.DBConnect;
 import DTTT.dao.KTTK;
 import DTTT.model.ThongTinPhong;
 import DTTT.model.ThongTinTin;
+<<<<<<< HEAD
+import java.io.File;
+import java.io.FileOutputStream;
+import static java.lang.System.out;
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,8 +25,18 @@ import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 
 /**
  *
@@ -58,6 +74,8 @@ public class CapNhatMenu extends javax.swing.JPanel {
              
         } catch (SQLException ex) {
             ex.printStackTrace();
+<<<<<<< HEAD
+=======
         }
     }
     
@@ -91,10 +109,47 @@ public class CapNhatMenu extends javax.swing.JPanel {
             return list;
         } catch (SQLException ex) {
             ex.printStackTrace();
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         }
         return null;
     }
     
+<<<<<<< HEAD
+  private List<ThongTinTin> lay_TinList(){
+        Connection conn = DBConnect.getConnection();
+        
+        
+        String sql = "SELECT * FROM Thong_Tin_Tin where TaiKhoan = ?";
+        List<ThongTinTin> list = new ArrayList<>();
+//        Vector<String> vt;
+        
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, KTTK.getTtk());
+            ResultSet rs = ps.executeQuery(); 
+            while(rs.next()){
+                ThongTinTin ttt = new ThongTinTin();
+
+                ttt.setTieuDe(rs.getString("TieuDe"));
+                ttt.setSDTTin(rs.getString("SDTTin"));
+                ttt.setNgayDang(rs.getDate("NgayDang"));
+                ttt.setAnNinh(rs.getString("AnNinh"));
+                ttt.setThongTinDiaChi(rs.getString("ThongTinDiaChi"));
+
+                list.add(ttt);
+            }
+            ps.close();
+            rs.close();
+            conn.close();
+            return list;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    
+=======
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -233,7 +288,7 @@ public class CapNhatMenu extends javax.swing.JPanel {
             cn.setTin(maTin.get(chon));
             cmh.setView(cn);
         } catch (SQLException ex) {
-            Logger.getLogger(CapNhatMenu.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -242,16 +297,87 @@ public class CapNhatMenu extends javax.swing.JPanel {
         try {
             cmh.setView(new CapNhat(KTTK.getTtk(),1));
         } catch (SQLException ex) {
-            Logger.getLogger(CapNhatMenu.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_jbtThemTinMoiMouseClicked
 
     private void jbtXuatFileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtXuatFileMouseClicked
+<<<<<<< HEAD
+
+        File fileLocation = null;
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File("."));
+        chooser.setDialogTitle("Chọn nơi lưu");
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser.setAcceptAllFileFilterUsed(false);
+
+        try {
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet spreadsheet = workbook.createSheet("Phòng trọ cho thuê");
+
+            XSSFRow row = null;
+            Cell cell = null;
+            
+            row = spreadsheet.createRow((short) 2);
+            row.setHeight((short) 500);
+
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("DANH SÁCH PHÒNG TRỌ CHO THUÊ");
+
+            row = spreadsheet.createRow((short) 3);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("Tiêu đề");
+//            cell.setCellStyle();
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("Số điện thoại tin");
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue("Ngày Đăng");
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue("An Ninh");
+            cell = row.createCell(4, CellType.STRING);
+            cell.setCellValue("Thông Tin Địa Chỉ");
+            
+            for (int i = 0; i < lay_TinList().size(); i++) {
+
+                ThongTinTin ttt = lay_TinList().get(i);
+
+                row = spreadsheet.createRow((short) 4 + i);
+                row.setHeight((short) 400);
+                row.createCell(0).setCellValue(ttt.getTieuDe());
+                row.createCell(1).setCellValue(ttt.getSDTTin());
+                row.createCell(2).setCellValue(ttt.getNgayDang().toString());
+                row.createCell(3).setCellValue(ttt.getAnNinh());
+                row.createCell(4).setCellValue(ttt.getThongTinDiaChi());
+
+            }for (int j = 0; j<4; j++){
+                spreadsheet.autoSizeColumn(j);
+            }
+            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+                fileLocation = chooser.getSelectedFile();
+                FileOutputStream out = new FileOutputStream(new File(fileLocation+"/DANH SÁCH PHÒNG CHO THUÊ.xlsx"));
+                workbook.write(out);
+                out.close();
+                JOptionPane.showMessageDialog(this, "Xuất file thành công !");
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        
+  
+    }//GEN-LAST:event_jbtXuatFileMouseClicked
+
+    private void jbtXuatFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXuatFileActionPerformed
+        
+=======
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtXuatFileMouseClicked
 
     private void jbtXuatFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXuatFileActionPerformed
         // TODO add your handling code here:
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
     }//GEN-LAST:event_jbtXuatFileActionPerformed
    
 

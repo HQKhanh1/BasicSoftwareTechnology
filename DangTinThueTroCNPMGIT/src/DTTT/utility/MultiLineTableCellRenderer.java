@@ -31,7 +31,11 @@ public class MultiLineTableCellRenderer extends JList<String> implements TableCe
         
         this.setLayoutOrientation(HORIZONTAL_WRAP);
        
+<<<<<<< HEAD
+        this.setFont(new Font("Arial",Font.PLAIN,18));
+=======
         this.setFont(new Font("Arial",Font.PLAIN,16));
+>>>>>>> 4cc4a4b37526423418ca6f20d502249c8d954521
         
         //make multi line where the cell value is String[]
         if (value instanceof String[]) {
