@@ -6,7 +6,9 @@ import DTTT.dao.KTTK;
 import DTTT.view.CapNhatMenu;
 import DTTT.view.DangNhap;
 import DTTT.view.DatLichHen;
+import DTTT.view.HienThiLichHen;
 import DTTT.view.TK;
+import DTTT.view.ThongKeJPanel;
 import DTTT.view.TrangChinh;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -42,7 +44,7 @@ public class ChuyenManHinh {
        
         root.removeAll();
         root.setLayout(new BorderLayout());
-        root.add(new theme());
+        root.add(new DangNhap());
         root.validate();
         root.repaint();
     }
@@ -54,6 +56,7 @@ public class ChuyenManHinh {
         root.add(jpn, BorderLayout.CENTER);
         root.validate();
         root.repaint();
+        
     }
     
     
@@ -83,6 +86,26 @@ public class ChuyenManHinh {
         @Override
         public void mouseClicked(MouseEvent e) {
             switch(loai){
+                case "LichHen":
+                {
+                        
+                    if(KTTK.getTtk().length()!=0){
+                        node = new HienThiLichHen();
+                        thu=1;
+                    }
+                    else{
+                            JOptionPane.showMessageDialog(null, "Bạn cần đăng nhập tài khoản cho chức năng này!");
+                            thu=1;
+                            node = new DangNhap();
+                    }
+                break;
+                    
+                }
+                
+                case "ThongKe":
+                    node = new ThongKeJPanel();
+                    thu = 1;
+                    break;
                 case "TrangChinh":
                 {
                     try {
@@ -90,7 +113,7 @@ public class ChuyenManHinh {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     } catch (SQLException ex) {
-                    ex.printStackTrace();
+                        ex.printStackTrace();
                 }
                 }thu=1;
                 break;
@@ -103,7 +126,8 @@ public class ChuyenManHinh {
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Bạn cần đăng nhập tài khoản cho chức năng này!");
-                        thu=0;
+                        node = new DangNhap();
+                        thu=1;
                     }
                 break;                
                 case "DangNhap":                    
@@ -119,8 +143,9 @@ public class ChuyenManHinh {
                     }
                     else{
                         node = new DangNhap();thu=1;
+                        
                     }
-                    node1 = new TK(KTTK.getTtk());                    
+                         node1 = new TK(KTTK.getTtk());                    
                    
                 break;
                

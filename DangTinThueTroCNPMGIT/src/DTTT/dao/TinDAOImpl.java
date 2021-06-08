@@ -1,6 +1,7 @@
 package DTTT.dao;
 
 
+import DTTT.model.Anh;
 import DTTT.model.TaiKhoan;
 import DTTT.model.ThongTinTin;
 import java.io.ByteArrayOutputStream;
@@ -14,13 +15,14 @@ import java.util.List;
 import javax.swing.ImageIcon;
 
 public class TinDAOImpl implements TinDAO{
-
+    
     @Override
     public List<ThongTinTin> getList() {
         PreparedStatement ps = null;
         try {
             Connection cons = DBConnect.getConnection();
-            String sql = "SELECT * FROM Thong_Tin_Tin";
+            String sql = "SELECT * FROM Thong_Tin_Tin WHERE TrangThai ='" + "True" + "'";
+            
             List<ThongTinTin> list = new ArrayList<>();
             ps = cons.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
@@ -35,17 +37,21 @@ public class TinDAOImpl implements TinDAO{
                 tin.setMaXa(rs.getString("MaXa"));
                 tin.setThongTinDiaChi(rs.getString("ThongTinDiaChi"));
                 tin.setTrangThai(rs.getBoolean("TrangThai"));
+                
                 list.add(tin);
             }
             ps.close();
             rs.close();
             cons.close();
             return list;
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         } 
         return null;
     }
+    
 }
+
 
 

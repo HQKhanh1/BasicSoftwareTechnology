@@ -407,31 +407,9 @@ public class PhongJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jtfDienTichActionPerformed
 
     private void jbtXemHinhPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXemHinhPhongActionPerformed
-//        int anhIndex = 0;
-        
-         
-        
-//        List<ThongTinPhong> listPhong = thongTinPhongService.getList();
-//        List<Anh> listAnh = anhService.getList();
-        
-//        for (int i = 0; i < listAnh.size(); i++) {
-//            anhIndex = i;
-//        }
-//        picture = listAnh.get(anhIndex).getHinhAnh();
-//        System.out.println(picture);
-              
-//        listAnhByte.add(picture);
-              
-//        Hinh hinh = new Hinh(hinhAnh.getDsha()); 
-//            ha.setDsha(hinh.layDSHinh());    
-//        HinhPhong hinh = new HinhPhong(listAnh, MaTinTin);  
-           
-        MaTinTin = jtfMaTin.getText();
-        MaTinTin = ChuanHoa.chuanHoaMa(MaTinTin);
-        
-       
-        
-        System.out.println("Mã tin: "+MaTinTin+"/");
+
+        MaTinTin = ChuanHoa.chuanHoaMa(jtfMaTin.getText());
+
         try {
             //        System.out.println(hinhAnh.getDsha());
             setTin(MaTinTin);
@@ -440,19 +418,14 @@ public class PhongJDialog extends javax.swing.JDialog {
         }
         
         HinhPhong hinhphong = new HinhPhong(hinhAnh.getDsha());
-        System.out.println(hinhAnh.getDsha());
             ha.setDsha(hinhphong.layDSHinh());
-//            System.out.println(hinhphong.layDSHinh());
             
     }//GEN-LAST:event_jbtXemHinhPhongActionPerformed
 
     private void jbtnHenXemPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnHenXemPhongActionPerformed
         try {
-            // TODO add your handling code here:
-            
             MaTinTin = jtfMaTin.getText();
             MaTinTin = ChuanHoa.xoaKhoangTrang(MaTinTin);
-            
             
             DatLichHen dl = new DatLichHen(MaTinTin);
             dl.setVisible(false);
@@ -465,11 +438,7 @@ public class PhongJDialog extends javax.swing.JDialog {
         
     }//GEN-LAST:event_jbtnHenXemPhongActionPerformed
     
-  
     public void setTin(String MaTinTin) throws SQLException{
-        
-        System.out.println("settin"+MaTinTin);
-        
         Connection conn = DBConnect.getConnection();
         String sql = "SELECT * FROM Thong_Tin_Tin ";
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -483,7 +452,6 @@ public class PhongJDialog extends javax.swing.JDialog {
     }
         
         public void setThongTinPhong(String MaTinTin) throws SQLException{
-        System.out.println("setttp"+MaTinTin);
         Connection conn = DBConnect.getConnection();
         String sql = "SELECT * FROM Thong_Tin_Phong";
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -499,10 +467,7 @@ public class PhongJDialog extends javax.swing.JDialog {
     }
     
     public void setHinhAnh(String MaTinTin) throws SQLException{
-        System.out.println("sethinhanh"+MaTinTin);
-        
         Anh ha = new Anh();
-        
         Connection conn = DBConnect.getConnection();
         String sql = "Select * FROM Hinh_Anh";
         PreparedStatement ps = conn.prepareStatement(sql);
