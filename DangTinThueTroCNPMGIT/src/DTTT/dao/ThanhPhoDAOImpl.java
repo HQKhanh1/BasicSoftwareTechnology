@@ -20,6 +20,7 @@ public class ThanhPhoDAOImpl implements ThanhPhoDAO{
         try {
             Connection cons = DBConnect.getConnection();
             String sql = "SELECT * FROM TinhThanhPho";
+            String sql2 = "SELECT ";
             List<ThanhPho> listTP = new ArrayList<>();
             ps = cons.prepareCall(sql);
             ResultSet rs = ps.executeQuery();
@@ -29,7 +30,7 @@ public class ThanhPhoDAOImpl implements ThanhPhoDAO{
                 tp.setLoai(rs.getString("Loai"));
                 tp.setMaTP(rs.getString("MaTP"));
                 tp.setTenTP(rs.getString("TenTP"));
-//                tp.setTaiKhoan((TaiKhoan) rs.getObject("TaiKhoan"));
+                
                 listTP.add(tp);
             }
             ps.close();
@@ -68,8 +69,7 @@ public class ThanhPhoDAOImpl implements ThanhPhoDAO{
         } catch (SQLException ex) {
             ex.printStackTrace();
         } 
-        return 
-                null;    
+        return null;    
     }
 
     @Override
@@ -88,7 +88,7 @@ public class ThanhPhoDAOImpl implements ThanhPhoDAO{
                 xp.setMaXa(rs.getString("MaXa"));
                 xp.setTenXa(rs.getString("TenXa"));
                 xp.setMaQH(rs.getString("MaQH"));
-//                tp.setTaiKhoan((TaiKhoan) rs.getObject("TaiKhoan"));
+                
                 listXP.add(xp);
             }
             ps.close();
@@ -99,7 +99,9 @@ public class ThanhPhoDAOImpl implements ThanhPhoDAO{
             ex.printStackTrace();
         } 
         return 
-                null;        }
+                null;       
+    }
+    
 }
 
 

@@ -12,7 +12,8 @@ public class DBConnect {
         String pass="123";
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            conn = DriverManager.getConnection(url,user,pass);System.out.println("SQL connected!");
+            conn = DriverManager.getConnection(url,user,pass);
+            System.out.println("SQL connected!");
         }
         catch(ClassNotFoundException |SQLException e){
             e.printStackTrace();

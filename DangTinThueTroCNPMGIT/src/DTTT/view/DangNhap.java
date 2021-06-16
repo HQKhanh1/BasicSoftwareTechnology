@@ -4,6 +4,7 @@ import DTTT.controller.ChuyenManHinh;
 import DTTT.dao.KTTK;
 import DTTT.view.ThemTKJDialog;
 import DTTT.view.theme;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -209,9 +210,9 @@ public class DangNhap extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(203, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(203, 203, 203))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,9 +225,7 @@ public class DangNhap extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1045, Short.MAX_VALUE)
-                .addGap(0, 15, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +244,7 @@ public class DangNhap extends javax.swing.JPanel {
             }
             else if(i==2){
                 ChuyenManHinh cmh = new ChuyenManHinh(jPanel1);
-                cmh.setView(new theme());
+                cmh.setView(new TrangChinh());
                 KTTK.setTtk(jtfTTK.getText()); 
             }
             else if(i==3){
@@ -253,7 +252,9 @@ public class DangNhap extends javax.swing.JPanel {
                 jpwMK.setText("");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_jbtDangNhapMouseClicked
 
@@ -282,16 +283,20 @@ public class DangNhap extends javax.swing.JPanel {
             }
             else if(i==2){
                 ChuyenManHinh cmh = new ChuyenManHinh(jPanel1);
-                cmh.setView(new theme());
+                cmh.setView(new TrangChinh());
                 KTTK.setTtk(jtfTTK.getText()); 
+//                MainScreen.jlbTaiKhoan.setText(KTTK.setTtk());
+                
             }
             else if(i==3){
                 jtfTTK.setText("");
                 jpwMK.setText("");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } 
         
     }//GEN-LAST:event_jbtDangNhapActionPerformed
 
@@ -324,8 +329,5 @@ public class DangNhap extends javax.swing.JPanel {
     private javax.swing.JTextField jtfTTK;
     // End of variables declaration//GEN-END:variables
 
-    private void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

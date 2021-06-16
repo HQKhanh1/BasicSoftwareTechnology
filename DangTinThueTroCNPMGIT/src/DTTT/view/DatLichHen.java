@@ -8,6 +8,7 @@ package DTTT.view;
 import DTTT.dao.DBConnect;
 import DTTT.dao.KTTK;
 import DTTT.dao.DatLicHenImpl;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -48,7 +49,7 @@ public class DatLichHen extends javax.swing.JDialog {
                         jcbbQuanHuyen.removeAllItems();
                         showQuanHuyen(getIDTinh(tinh));
                     } catch (SQLException ex) {
-                        Logger.getLogger(CapNhat2.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CapNhat.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -64,7 +65,7 @@ public class DatLichHen extends javax.swing.JDialog {
                         jcbbXPTT.removeAllItems();
                         showXPTT(getIDHuyen(huyen));
                     } catch (SQLException ex) {
-                        Logger.getLogger(CapNhat2.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CapNhat.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -79,7 +80,7 @@ public class DatLichHen extends javax.swing.JDialog {
                     try {
                         idXa = getIDXa(xptt);
                     } catch (SQLException ex) {
-                        Logger.getLogger(CapNhat2.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(CapNhat.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -93,6 +94,7 @@ public class DatLichHen extends javax.swing.JDialog {
                 java.util.Date date;
                 long millis=System.currentTimeMillis();  
                 java.sql.Date dateNow=new java.sql.Date(millis);
+                maTin =MaTinTin;
                 try {
                     SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
                     thoiGianHentxt = formatter1.format(jDate_LichHen.getDate());
@@ -100,9 +102,15 @@ public class DatLichHen extends javax.swing.JDialog {
                     thoiGianHen = new java.sql.Date(date.getTime());
                     if(KTTK.getTtk().length()!=0){
                         taiKhoan = KTTK.getTtk();
-                        if(thoiGianHen.after(dateNow)){
-                            maTin =MaTinTin;
-                            maXa = getIDXa(jcbbXPTT.getSelectedItem().toString());
+                        if(DatLicHenImpl.checkTaiKhoanTrongMaTin(MaTinTin) == 1){
+                            JOptionPane.showMessageDialog(rootPane, "Bạn đang đặt lịch hẹn với tin mình đã đăng!");
+                        }else if(DatLicHenImpl.laySoPhong(maTin) <= 0){
+                            JOptionPane.showMessageDialog(rootPane, "Tin bạn đang xem không còn phòng!\n Vui lòng liên hệ trực tiếp đến người đăng tin qua số điện thoại!");
+                        }
+                        else if(!thoiGianHen.after(dateNow)){
+                            JOptionPane.showMessageDialog(rootPane, "Thời gian hẹn không phù hợp! Mời bạn chọn lại!");
+                        }else if(jcbbTinhTP.getSelectedItem() != null && jcbbQuanHuyen.getSelectedItem() != null && jcbbXPTT.getSelectedItem() != null){
+                           maXa = getIDXa(jcbbXPTT.getSelectedItem().toString());
                             moTa = jtxtMoTa.getText();
                             maLichHen = DTTT.dao.DatLicHenImpl.layMalichHen();
                             DTTT.model.DatLichHen lichhen = new DTTT.model.DatLichHen(maLichHen, maTin, taiKhoan, maXa, moTa, thoiGianHen);
@@ -112,21 +120,28 @@ public class DatLichHen extends javax.swing.JDialog {
                                             JOptionPane.YES_NO_OPTION);
                             if(check == JOptionPane.YES_OPTION){
                                 DTTT.dao.DatLicHenImpl.themLichHen(lichhen);
+                                DatLicHenImpl.truSoPhong(maTin);
                                 JOptionPane.showMessageDialog(rootPane, "Đặt lịch hẹn thành công!");
-                            }
+                                Container frame = jbtnXacNhan.getParent();
+                                do{
+                                    frame = frame.getParent(); 
+                                }while (!(frame instanceof DatLichHen));  
+                                ((DatLichHen) frame).dispose();         
+                            } 
                         }else{
-                            JOptionPane.showMessageDialog(rootPane, "Thời gian hẹn không phù hợp! Mời bạn chọn lại!");
+                            JOptionPane.showMessageDialog(rootPane, "Vui lòng chọn địa điểm hẹn");
                         }
                     }else{
                         JOptionPane.showMessageDialog(rootPane, "Bạn chưa đăng nhập! Vui lòng đăng nhập để sử dụng chức năng này!");
                     }
-
                 } catch (ParseException ex) {
                     Logger.getLogger(DatLichHen.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {
                     Logger.getLogger(DatLichHen.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+
+
         });
     }
     
@@ -209,10 +224,10 @@ public class DatLichHen extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jDate_LichHen = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         jtbnQuayLai = new javax.swing.JButton();
         jbtnXacNhan = new javax.swing.JButton();
+        jDate_LichHen = new com.toedter.calendar.JDateChooser();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jcbbTinhTP = new javax.swing.JComboBox<>();
@@ -226,7 +241,6 @@ public class DatLichHen extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(960, 640));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -267,8 +281,6 @@ public class DatLichHen extends javax.swing.JDialog {
         jLabel3.setText("Thời gian hẹn");
         jLabel3.setOpaque(true);
 
-        jDate_LichHen.setDateFormatString("dd/MM/yyyy");
-
         jLabel4.setBackground(new java.awt.Color(204, 255, 255));
         jLabel4.setText("Ngày hẹn:");
         jLabel4.setOpaque(true);
@@ -291,6 +303,9 @@ public class DatLichHen extends javax.swing.JDialog {
             }
         });
 
+        jDate_LichHen.setDateFormatString("dd/MM/yyyy");
+        jDate_LichHen.setName("jDate_LichHen"); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -301,11 +316,11 @@ public class DatLichHen extends javax.swing.JDialog {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jDate_LichHen, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDate_LichHen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jtbnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addComponent(jbtnXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -315,9 +330,9 @@ public class DatLichHen extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jDate_LichHen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDate_LichHen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jtbnQuayLai, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)

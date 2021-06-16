@@ -28,6 +28,7 @@ import DTTT.service.ThongTinPhongServiceImpl;
 import DTTT.service.ThongTinTinService;
 import DTTT.service.ThongTinTinServiceImpl;
 import DTTT.utility.ClassTableModel;
+import DTTT.utility.TextTableRenderer;
 import DTTT.view.PhongJDialog;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -35,9 +36,17 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 import java.util.Vector;
+import javax.accessibility.AccessibleContext;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -64,7 +73,9 @@ public class TinNhaTroController {
     private JPanel jpnView;
 //    private JButton btnAdd;
     private JTextField jtfSearch;
+    private JComboBox jcbLoai;
     private JLabel jlbAnh;
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
     
     PhongJDialog jdialog = new PhongJDialog(tinphong, lp);
 //    PhongJDialog jdialog = new PhongJDialog(tinphong, lp);
@@ -72,7 +83,7 @@ public class TinNhaTroController {
     private ClassTableModel classTableModel = null;
     
     private final String[] COLUMNS = {"Mã tin","Ảnh", "Tiêu đề",
-        "Thông tin địa chỉ", "Thông tin chung","Trạng thái" };
+        "Thông tin địa chỉ", "Thông tin chung","Giá Phòng" };
     
     
     private ThongTinTinService thongTinService = null;
@@ -82,9 +93,9 @@ public class TinNhaTroController {
     private ThanhPhoService thanhPhoService = null;
 //    private List<String> dsMaHinh = null;
     ThongTinTin tin = null;
-    public TinNhaTroController(JPanel jpnView, JTextField jtfSearch) {
+    public TinNhaTroController(JPanel jpnView, JTextField jtfSearch,JComboBox jcbLoai) {
         this.jpnView = jpnView;
-//        this.btnAdd = btnAdd;
+        this.jcbLoai = jcbLoai;
         this.jtfSearch = jtfSearch;
         this.thongTinPhongService = new ThongTinPhongServiceImpl();
         this.classTableModel = new ClassTableModel();
@@ -97,7 +108,7 @@ public class TinNhaTroController {
     
     
     // set thông tin vào bảng
-    public void setDataToTable() throws IOException {
+    public void setDataToTable() throws IOException, SQLException {
         
         //Danh sách các list có liên quan tới thông tin được show trên bảng
         List<ThongTinTin> listItem = thongTinService.getList();
@@ -119,29 +130,69 @@ public class TinNhaTroController {
         jtfSearch.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                String text = jtfSearch.getText();
+                if(jcbLoai.getSelectedIndex()==0){
+                    String text = jtfSearch.getText();               
                 if (text.trim().length() == 0) {
                     rowSorter.setRowFilter(null);
                 } else {
-                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,0));
+                  }
                 }
+                if(jcbLoai.getSelectedIndex()==1){
+                    String text = jtfSearch.getText();               
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,3));
+                  }
+                }
+                if(jcbLoai.getSelectedIndex()==2){
+                    String text = jtfSearch.getText();               
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,5));
+                  }
+                }
+                
             }
             
             @Override
             public void removeUpdate(DocumentEvent e) {
-                String text = jtfSearch.getText();
+                String text = jtfSearch.getText();  
+                if(jcbLoai.getSelectedIndex()==0){
+                                 
                 if (text.trim().length() == 0) {
                     rowSorter.setRowFilter(null);
                 } else {
-                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,0));
+                  }
+                }
+                
+                if(jcbLoai.getSelectedIndex()==1){
+                                 
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,3));
+                  }
+                }
+                
+                if(jcbLoai.getSelectedIndex()==2){
+                                 
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text,5));
+                  }
                 }
             }
             
             @Override
             public void changedUpdate(DocumentEvent e) {
             }
-        });
-        
+        }); 
+              
         // các thao tác với bảng 
         table.addMouseListener(new MouseAdapter() {
             @Override
@@ -154,7 +205,7 @@ public class TinNhaTroController {
                     int selectedRowIndex = table.getSelectedRow();
                     String MaTinTin = ChuanHoa.chuanHoaMa((String)table.getValueAt(selectedRowIndex, 0)) ;
                     selectedRowIndex = table.convertRowIndexToModel(selectedRowIndex);
-                    
+//                    table.setDefaultRenderer(String.class, new LineWrapCellRenderer());
                     //lấy tiêu đề ở hàng được chọn cột 2
                     String TieuDe = model.getValueAt(selectedRowIndex, 2).toString();
                     
@@ -175,7 +226,7 @@ public class TinNhaTroController {
                         }
                          
                                 tinphong = listPhong.get(phongIndex); 
-                     // vòng for để duyệt lấy từng phòng để vào jdialog         
+                        // vòng for để duyệt lấy từng phòng để vào jdialog         
                         for( int k = 0; k < listLP.size(); k++  ){
                                 lp = listLP.get(k);
                                 if (tinphong.getMaLoaiPhong().equals(lp.getMaLoaiPhong())){
@@ -196,9 +247,7 @@ public class TinNhaTroController {
                     jdialog.setBounds(90, 90, 800, 490);
                     jdialog.setLocationRelativeTo(null);
                     jdialog.setVisible(true);
-
                     
-//                    }
                 }
             }
            
@@ -209,7 +258,8 @@ public class TinNhaTroController {
 
 
         //Thiết kế 
-        table.setFont(new Font("Arial",0,16));
+        
+        table.setFont(new Font("Arial",0,18));
         table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
         table.getTableHeader().setPreferredSize(new Dimension(100, 50));
@@ -237,16 +287,20 @@ public class TinNhaTroController {
         //Cột mã tin
         table.getColumnModel().getColumn(0).setMaxWidth(48);
         table.getColumn("Mã tin").setCellRenderer(centerRenderer);
-                        
+         
+        //Cột địa chỉ
+//        table.getColumnModel().getColumn(3).setCellRenderer(new TextTableRenderer());
+        
+//        table.setRowHeight(0, 80);
     
         //Cột hình ảnh
         table.getColumnModel().getColumn(1).setMaxWidth(300);
         table.getColumnModel().getColumn(1).setMinWidth(300);
        
         //Cột trạng thái
-        table.getColumnModel().getColumn(5).setMaxWidth(80);
-        table.getColumnModel().getColumn(5).setMinWidth(80);
-        table.getColumn("Trạng thái").setCellRenderer(centerRenderer);
+        table.getColumnModel().getColumn(5).setMaxWidth(150);
+        table.getColumnModel().getColumn(5).setMinWidth(150);
+        table.getColumn("Giá Phòng").setCellRenderer(centerRenderer);
 
         //Cột tiêu đề
         table.getColumnModel().getColumn(3).setPreferredWidth(300);
@@ -262,5 +316,6 @@ public class TinNhaTroController {
         jpnView.repaint();
 
     }
+    
     
 }

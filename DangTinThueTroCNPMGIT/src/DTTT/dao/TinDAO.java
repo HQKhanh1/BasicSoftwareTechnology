@@ -5,6 +5,7 @@
  */
 package DTTT.dao;
 
+import DTTT.model.QuanHuyen;
 import DTTT.model.ThongTinTin;
 import java.util.List;
 
@@ -15,6 +16,6 @@ import java.util.List;
 public interface TinDAO {
     
     public List<ThongTinTin> getList();
-//    public int createOrUpdate(ThongTinTin tin);
+   
     
 }

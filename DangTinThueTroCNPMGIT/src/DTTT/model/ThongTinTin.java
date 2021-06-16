@@ -17,6 +17,12 @@ public class ThongTinTin {
     private TaiKhoan taiKhoan;
     private String MaHinhAnh;
     private String MaLoaiPhong;
+    private String TenXa;
+    private String MaQH;
+    private String TenQH;
+    private String MaTP;
+    private String TenTP;
+    
 
     public ThongTinTin(String MaTin, String TieuDe, String SDTTin, float DienTich, Date NgayDang, String AnNinh, String MaXa, String ThongTinDiaChi, boolean TrangThai, TaiKhoan taiKhoan, String MaHinhAnh, String MaLoaiPhong) {
         this.MaTin = MaTin;
@@ -131,6 +137,46 @@ public class ThongTinTin {
 
     public void setMaHinhAnh(String MaHinhAnh) {
         this.MaHinhAnh = MaHinhAnh;
+    }
+
+    public String getTenXa() {
+        return TenXa;
+    }
+
+    public void setTenXa(String TenXa) {
+        this.TenXa = TenXa;
+    }
+
+    public String getMaQH() {
+        return MaQH;
+    }
+
+    public void setMaQH(String MaQH) {
+        this.MaQH = MaQH;
+    }
+
+    public String getTenQH() {
+        return TenQH;
+    }
+
+    public void setTenQH(String TenQH) {
+        this.TenQH = TenQH;
+    }
+
+    public String getMaTP() {
+        return MaTP;
+    }
+
+    public void setMaTP(String MaTP) {
+        this.MaTP = MaTP;
+    }
+
+    public String getTenTP() {
+        return TenTP;
+    }
+
+    public void setTenTP(String TenTP) {
+        this.TenTP = TenTP;
     }
     
     

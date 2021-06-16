@@ -7,6 +7,8 @@ package DTTT.view;
 
 import DTTT.controller.ThongTinPhongController;
 import DTTT.dao.DBConnect;
+import DTTT.dao.DatLicHenImpl;
+import DTTT.dao.KTTK;
 import DTTT.model.Anh;
 import DTTT.model.ChuanHoa;
 import DTTT.model.LoaiPhong;
@@ -35,6 +37,7 @@ import java.util.logging.Logger;
 import javax.accessibility.AccessibleRole;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,40 +46,25 @@ import javax.swing.JLabel;
 
 public class PhongJDialog extends javax.swing.JDialog {
     
-    String MaTinTin = ""; 
+    String MaTinTin = "";
+    
     public PhongJDialog() throws SQLException {
         initComponents();
-        this.anhService = new AnhServiceImpl();
-        
+        this.anhService = new AnhServiceImpl();  
     }
     
     private AnhService anhService = new AnhServiceImpl();
-    
     private ThongTinPhongService thongTinPhongService = null;
-    
-//    public PhongJDialog(ThongTinPhong tinphong, LoaiPhong lp) throws SQLException {
-//        initComponents();
-//        this.anhService = new AnhServiceImpl();
-//        this.thongTinPhongService = new  ThongTinPhongServiceImpl();
-//        ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
-//        controller.setView(tinphong, lp);
-//         
-//    }
     
     public PhongJDialog(ThongTinPhong tinphong, LoaiPhong lp) {
         initComponents();
         this.anhService = new AnhServiceImpl();
-        this.thongTinPhongService = new  ThongTinPhongServiceImpl();
-//        ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
-//        controller.setView(tinphong, lp);
-         
+        this.thongTinPhongService = new  ThongTinPhongServiceImpl();        
     }
     
     public PhongJDialog(java.awt.Frame parent, boolean modal, ThongTinPhong tinphong, LoaiPhong lp) throws SQLException {
-        super(parent, modal);
-        
+        super(parent, modal);   
         initComponents();
-        
         this.anhService = new AnhServiceImpl();
         ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
         controller.setView(tinphong, lp);  
@@ -84,23 +72,16 @@ public class PhongJDialog extends javax.swing.JDialog {
     
     ThongTinTin ttt = new ThongTinTin();
     ThongTinPhong ttp = new ThongTinPhong(); 
-//    List<Anh> listAnh = anhService.getList();
     Anh hinhAnh = new Anh(); // dùng để thêm hình ảnh mới  
     Anh ha = new Anh(); // dùng để duyệt hình ảnh đã có
     
-    
-    
-   
     int loai=0,luu=0;
     ButtonGroup bg = new ButtonGroup();
     byte[] picture = null;
     List<byte[]> listAnhByte = null;
-    
-    
+       
     public PhongJDialog(ThongTinPhong tinphong) throws SQLException {
         initComponents();
-        
-        
         this.anhService = new AnhServiceImpl();
         ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
         controller.setView(tinphong);
@@ -108,8 +89,6 @@ public class PhongJDialog extends javax.swing.JDialog {
          
     }
     
-//    public PhongJDialog() {
-//    }
     public void setTinPhong(ThongTinPhong tinphong){
         ThongTinPhongController controller = new ThongTinPhongController(jtfMaTin,jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
         controller.setView(tinphong);
@@ -120,11 +99,6 @@ public class PhongJDialog extends javax.swing.JDialog {
         controller.setView(tinphong, lp);
     }
         
-//        public void setTinPhong(ThongTinPhong tinphong, LoaiPhong lp, String MaTinTin){
-//        ThongTinPhongController controller = new ThongTinPhongController(jtfDienTich,jtfGiaPhong,jtfSoPhong,jtfDieuHoa,jtfLoaiPhong,jtaMoTa);
-//        controller.setView(tinphong, lp);
-//        tinphong.getMaTin();
-//    }
         
     /**
      * This method is called from within the constructor to initialize the form.
@@ -234,6 +208,7 @@ public class PhongJDialog extends javax.swing.JDialog {
         jtaMoTa.setColumns(20);
         jtaMoTa.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jtaMoTa.setForeground(new java.awt.Color(255, 255, 255));
+        jtaMoTa.setLineWrap(true);
         jtaMoTa.setRows(5);
         jtaMoTa.setTabSize(15);
         jtaMoTa.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mô tả", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 18), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -279,7 +254,7 @@ public class PhongJDialog extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -300,7 +275,7 @@ public class PhongJDialog extends javax.swing.JDialog {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(11, 11, 11)
-                                        .addComponent(jtfGiaPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE))
+                                        .addComponent(jtfGiaPhong, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
                                     .addComponent(jtfSoPhong))))
                         .addGap(117, 117, 117))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -314,7 +289,7 @@ public class PhongJDialog extends javax.swing.JDialog {
                         .addGap(45, 45, 45)
                         .addComponent(jbtnHenXemPhong, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jtaMoTa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -407,74 +382,46 @@ public class PhongJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jtfDienTichActionPerformed
 
     private void jbtXemHinhPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtXemHinhPhongActionPerformed
-//        int anhIndex = 0;
-        
-         
-        
-//        List<ThongTinPhong> listPhong = thongTinPhongService.getList();
-//        List<Anh> listAnh = anhService.getList();
-        
-//        for (int i = 0; i < listAnh.size(); i++) {
-//            anhIndex = i;
-//        }
-//        picture = listAnh.get(anhIndex).getHinhAnh();
-//        System.out.println(picture);
-              
-//        listAnhByte.add(picture);
-              
-//        Hinh hinh = new Hinh(hinhAnh.getDsha()); 
-//            ha.setDsha(hinh.layDSHinh());    
-//        HinhPhong hinh = new HinhPhong(listAnh, MaTinTin);  
-           
-        MaTinTin = jtfMaTin.getText();
-        MaTinTin = ChuanHoa.chuanHoaMa(MaTinTin);
-        
-       
-        
-        System.out.println("Mã tin: "+MaTinTin+"/");
+
+        MaTinTin = ChuanHoa.chuanHoaMa(jtfMaTin.getText());
+
         try {
-            //        System.out.println(hinhAnh.getDsha());
             setTin(MaTinTin);
         } catch (SQLException ex) {
            ex.printStackTrace();
         }
         
         HinhPhong hinhphong = new HinhPhong(hinhAnh.getDsha());
-        System.out.println(hinhAnh.getDsha());
             ha.setDsha(hinhphong.layDSHinh());
-//            System.out.println(hinhphong.layDSHinh());
             
     }//GEN-LAST:event_jbtXemHinhPhongActionPerformed
 
     private void jbtnHenXemPhongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnHenXemPhongActionPerformed
-        try {
-            // TODO add your handling code here:
-            
+       try {
             MaTinTin = jtfMaTin.getText();
             MaTinTin = ChuanHoa.xoaKhoangTrang(MaTinTin);
-            
-            
-            DatLichHen dl = new DatLichHen(MaTinTin);
-            dl.setVisible(false);
-            dl.setBounds(90, 90, 620, 470);
-            dl.setLocationRelativeTo(null);
-            dl.setVisible(true);
+            boolean check = DatLicHenImpl.checkTrungTaiKhoanMaTinLichHen(KTTK.getTtk(), MaTinTin);
+            if(check){
+                JOptionPane.showMessageDialog(rootPane, "Chỉ được hẹn mỗi tin một lần");
+            }else{
+                DatLichHen dl = new DatLichHen(MaTinTin);
+                dl.setVisible(false);
+                dl.setBounds(90, 90, 620, 470);
+                dl.setLocationRelativeTo(null);
+                dl.setVisible(true);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(PhongJDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        
     }//GEN-LAST:event_jbtnHenXemPhongActionPerformed
     
-  
     public void setTin(String MaTinTin) throws SQLException{
-        
-        System.out.println("settin"+MaTinTin);
-        
         Connection conn = DBConnect.getConnection();
         String sql = "SELECT * FROM Thong_Tin_Tin ";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
-        
         
         this.MaTinTin=MaTinTin;
         MaTinTin = ChuanHoa.chuanHoaMa(MaTinTin);
@@ -483,26 +430,20 @@ public class PhongJDialog extends javax.swing.JDialog {
     }
         
         public void setThongTinPhong(String MaTinTin) throws SQLException{
-        System.out.println("setttp"+MaTinTin);
         Connection conn = DBConnect.getConnection();
         String sql = "SELECT * FROM Thong_Tin_Phong";
         PreparedStatement ps = conn.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next()){
             if(ChuanHoa.chuanHoaMa(rs.getString("MaTin")).equals(MaTinTin)){
-
                   setHinhAnh(MaTinTin); 
-                 
             }
         }
         
     }
     
     public void setHinhAnh(String MaTinTin) throws SQLException{
-        System.out.println("sethinhanh"+MaTinTin);
-        
         Anh ha = new Anh();
-        
         Connection conn = DBConnect.getConnection();
         String sql = "Select * FROM Hinh_Anh";
         PreparedStatement ps = conn.prepareStatement(sql);

@@ -1,13 +1,13 @@
 package DTTT.view;
-import DTTT.dao.KTTK;
+
 import DTTT.dao.TaiKhoanDB;
 import javax.swing.JOptionPane;
 import DTTT.model.ChuanHoa;
 import DTTT.model.TaiKhoan;
-import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 public class ThemTKJDialog extends javax.swing.JDialog {
 
     int kq = 0;
@@ -16,87 +16,9 @@ public class ThemTKJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         jbtQuayLai.setVisible(true);
-        jbtQuayLai.setVisible(true);
-        
+        jbtQuayLai.setVisible(true);     
     }
-    private void jbtDangKiMouseClicked(java.awt.event.MouseEvent evt) {                                       
-        TaiKhoan tk = new TaiKhoan();
-        String mk = new String(jpwMK.getPassword());
-        String xnmk = new String(jpwXNMK.getPassword());
-        jtfHoTen5.setText(ChuanHoa.ChuanHoaHoTen(jtfHoTen5.getText()));
-        if(jtfHoTen5.getText().length()==0){
-            JOptionPane.showMessageDialog(null,"Không được để trống 'Họ Tên'");
-        }
-        else if(jtfSDT.getText().length() == 0){
-            JOptionPane.showMessageDialog(null,"Không được để trống 'Số Điện Thoại'");
-        }
-        else if(jtfTenDN.getText().length() == 0){
-            JOptionPane.showMessageDialog(null,"Không được để trống 'Tên Đăng Nhập'");
-            jtfTenDN.setText("");
-        }
-        else if(mk.length() == 0){
-            JOptionPane.showMessageDialog(null,"Không được để trống 'Mật khẩu'");
-        }
-         else if(xnmk.length() == 0){
-            JOptionPane.showMessageDialog(null,"Không được để trống 'Xác nhận mật khẩu'");
-        }
-        else if(!jtfHoTen5.getText().matches("^[a-zA-Z ]{1,29}$")){
-            JOptionPane.showMessageDialog(null,"Họ tên không hợp lệ!");
-            jtfHoTen5.setText("");
-        }
-        else if(!ChuanHoa.ChuanHoaSDT(jtfSDT.getText())){
-            JOptionPane.showMessageDialog(null, "Số điện thoại không hợp lệ!");
-            jtfSDT.setText("");
-        }
-        else if(jtfTenDN.getText().length()<4){
-            JOptionPane.showMessageDialog(null, "Tên tài khoản quá ngắn!");
-            jtfTenDN.setText("");
-        }
-        else if(mk.length()<6){
-            JOptionPane.showMessageDialog(null, "Mật khẩu phải có ít nhất 6 kí tự!");
-            jpwMK.setText("");
-            jpwXNMK.setText("");
-        }
-        else if(mk.compareToIgnoreCase(xnmk)!=0){
-            JOptionPane.showMessageDialog(null, "Mật khẩu không khớp!");
-            jpwMK.setText("");
-            jpwXNMK.setText("");
-        }
-        else{
-            tk.setHoTen(jtfHoTen5.getText());
-            tk.setSdt(jtfSDT.getText());
-            tk.setTenTK(jtfTenDN.getText());
-            tk.setMk(mk);
-            
-            try {
-                if(TaiKhoanDB.kTTKTonTai(tk.getTenTK())==0){
-                    TaiKhoanDB.themTaiKhoan(tk);
-                    JOptionPane.showMessageDialog(null, "Đã thêm tài khoản!");
-                    this.dispose();
-                    kq=1;
-                    ttk = tk.getTenTK();
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Tên TK đã được sử dụng! Vui lòng dùng tên TK khác");
-                    jtfTenDN.setText("");
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(ThemTKJDialog.class.getName()).log(Level.SEVERE, null, ex);
-            }
-             
-        }
-    }
-    
-//    private void jtfSDTKeyTyped(java.awt.event.KeyEvent evt) {                                
-//        char c = evt.getKeyChar();
-//        if(!Character.isDigit(c)){
-//            evt.consume();
-//        }
-//        if(jtfSDT.getText().length() >= 10){
-//
-//            evt.consume();
-//        }
-//    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -141,6 +63,11 @@ public class ThemTKJDialog extends javax.swing.JDialog {
         jLabel12.setText("Họ tên:");
 
         jtfHoTen5.setBorder(null);
+        jtfHoTen5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfHoTen5KeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -205,6 +132,11 @@ public class ThemTKJDialog extends javax.swing.JDialog {
         jLabel3.setText("Tên tài khoản:");
 
         jtfTenDN.setBorder(null);
+        jtfTenDN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfTenDNKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -234,6 +166,11 @@ public class ThemTKJDialog extends javax.swing.JDialog {
         jLabel4.setText("Mật khẩu:");
 
         jpwMK.setBorder(null);
+        jpwMK.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpwMKKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -264,6 +201,11 @@ public class ThemTKJDialog extends javax.swing.JDialog {
         jLabel5.setPreferredSize(new java.awt.Dimension(140, 17));
 
         jpwXNMK.setBorder(null);
+        jpwXNMK.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jpwXNMKKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -386,7 +328,6 @@ public class ThemTKJDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jbtDangKi1MouseClicked
 
     private void jbtQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtQuayLaiActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jbtQuayLaiActionPerformed
 
@@ -396,7 +337,6 @@ public class ThemTKJDialog extends javax.swing.JDialog {
         String mk = new String(jpwMK.getPassword());
         String xnmk = new String(jpwXNMK.getPassword());
         jtfHoTen5.setText(ChuanHoa.ChuanHoaHoTen(jtfHoTen5.getText()));
-        System.out.println("");
         if(jtfHoTen5.getText().length()==0){
             JOptionPane.showMessageDialog(null,"Không được để trống 'Họ Tên'");
         }
@@ -410,12 +350,8 @@ public class ThemTKJDialog extends javax.swing.JDialog {
         else if(mk.length() == 0){
             JOptionPane.showMessageDialog(null,"Không được để trống 'Mật khẩu'");
         }
-         else if(xnmk.length() == 0){
+        else if(xnmk.length() == 0){
             JOptionPane.showMessageDialog(null,"Không được để trống 'Xác nhận mật khẩu'");
-        }
-        else if(!jtfHoTen5.getText().matches("^[a-zA-Z ]{1,29}$")){
-            JOptionPane.showMessageDialog(null,"Họ tên không hợp lệ!");
-            jtfHoTen5.setText("");
         }
         else if(!ChuanHoa.ChuanHoaSDT(jtfSDT.getText())){
             JOptionPane.showMessageDialog(null, "Số điện thoại không hợp lệ!");
@@ -454,7 +390,7 @@ public class ThemTKJDialog extends javax.swing.JDialog {
                     jtfTenDN.setText("");
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(ThemTKJDialog.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
              
         }
@@ -467,10 +403,43 @@ public class ThemTKJDialog extends javax.swing.JDialog {
             evt.consume();
         }
         if(jtfSDT.getText().length() >= 10){
-
             evt.consume();
         }
     }//GEN-LAST:event_jtfSDTKeyTyped
+
+    private void jtfHoTen5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfHoTen5KeyTyped
+        char c = evt.getKeyChar();
+        if (c != ' ') {
+            if (!Character.isLetter(c)) {
+                evt.consume();
+            }
+        }
+
+        if (jtfHoTen5.getText().length() >= 50) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtfHoTen5KeyTyped
+
+    private void jtfTenDNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfTenDNKeyTyped
+        if (jtfTenDN.getText().length() >= 10) {
+            JOptionPane.showMessageDialog(null, "Tên đăng nhập tối đa 10 kí tự!");
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtfTenDNKeyTyped
+
+    private void jpwMKKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpwMKKeyTyped
+        if (new String(jpwMK.getPassword()).length() >= 10) {
+            JOptionPane.showMessageDialog(null, "Mật khẩu tối đa 10 kí tự!");
+            evt.consume();
+        }
+    }//GEN-LAST:event_jpwMKKeyTyped
+
+    private void jpwXNMKKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpwXNMKKeyTyped
+        if (new String(jpwXNMK.getPassword()).length() >= 10) {
+            JOptionPane.showMessageDialog(null, "Mật khẩu tối đa 10 kí tự!");
+            evt.consume();
+        }
+    }//GEN-LAST:event_jpwXNMKKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel12;
